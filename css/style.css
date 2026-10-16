@@ -32,11 +32,15 @@
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Spacing */
+  /* Spacing & Viewport Insets */
   --header-height: 72px;
   --container-max-width: 1200px;
-  --container-padding: clamp(1rem, 4vw, 2rem);
-  --section-spacing-y: clamp(4.5rem, 8vw, 7.5rem);
+  --container-padding: clamp(0.9rem, 4vw, 2rem);
+  --section-spacing-y: clamp(3.75rem, 7vw, 7.5rem);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 
   /* Elevation & Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -78,11 +82,14 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
   background-color: var(--bg-main);
   color: var(--text-main);
   overflow-x: hidden;
@@ -202,7 +209,7 @@ ul, ol {
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-size: clamp(1.75rem, 5vw, 2.85rem);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -211,7 +218,7 @@ ul, ol {
 }
 
 .section-subtitle {
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-size: clamp(0.92rem, 1.8vw, 1.1rem);
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -241,11 +248,15 @@ ul, ol {
   cursor: pointer;
   white-space: nowrap;
   line-height: 1;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .btn-sm {
   padding: 0.55rem 1.15rem;
   font-size: 0.85rem;
+  min-height: 38px;
   border-radius: var(--radius-sm);
 }
 
@@ -429,23 +440,29 @@ ul, ol {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
   border-radius: var(--radius-sm);
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  transition: border-color var(--transition-fast);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.mobile-toggle:hover {
-  border-color: var(--border-hover);
+.mobile-toggle:hover,
+.mobile-toggle:focus-visible {
+  border-color: var(--accent-red);
+  outline: none;
 }
 
 .hamburger-bar {
   display: block;
-  width: 100%;
+  width: 22px;
   height: 2px;
   background-color: var(--text-main);
   border-radius: 2px;
@@ -471,10 +488,13 @@ ul, ol {
   left: 0;
   width: 100%;
   height: calc(100vh - var(--header-height));
+  height: calc(100dvh - var(--header-height));
+  max-height: calc(100dvh - var(--header-height));
   background-color: rgba(8, 8, 8, 0.98);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border-color);
-  padding: 1.5rem var(--container-padding) 2rem var(--container-padding);
+  padding: 1.25rem var(--container-padding) calc(2.5rem + var(--safe-bottom)) var(--container-padding);
   display: flex;
   flex-direction: column;
   transform: translateY(-100%);
@@ -482,6 +502,8 @@ ul, ol {
   visibility: hidden;
   transition: transform var(--transition-smooth), opacity var(--transition-smooth), visibility var(--transition-smooth);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   z-index: 999;
 }
 
@@ -494,27 +516,30 @@ ul, ol {
 .mobile-drawer-inner {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.75rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   margin: 0 auto;
 }
 
 .mobile-nav-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .mobile-nav-link {
-  display: block;
-  padding: 0.85rem 1rem;
-  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-secondary);
   border-radius: var(--radius-md);
-  border-left: 2px solid transparent;
+  border-left: 3px solid transparent;
   transition: all var(--transition-fast);
+  touch-action: manipulation;
 }
 
 .mobile-nav-link:hover,
@@ -2099,7 +2124,7 @@ ul, ol {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
-  font-size: 0.95rem;
+  font-size: 1rem; /* 16px prevents iOS Safari auto-zoom */
   color: var(--text-main);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -2494,15 +2519,8 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   15. Media Queries & Responsive Breakpoints
+   15. Media Queries & Responsive Breakpoints (Mobile-First Architecture)
    -------------------------------------------------------------------------- */
-
-/* Small Devices (375px and up) */
-@media (min-width: 375px) {
-  .hero-cta-group {
-    flex-direction: row;
-  }
-}
 
 /* Tablet Devices (768px and up) */
 @media (min-width: 768px) {
@@ -2593,6 +2611,474 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   Mobile-Specific Max-Width Breakpoints (Touch & Small Screen Optimization)
+   -------------------------------------------------------------------------- */
+
+/* Below Tablet (1023px and down) */
+@media (max-width: 1023px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-card:nth-child(even) .project-mockup {
+    order: 0;
+  }
+
+  .project-card:nth-child(even) .project-details {
+    order: 0;
+  }
+}
+
+/* Small Tablets & Large Phones (767px and down) */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+    --section-spacing-y: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  html {
+    scroll-padding-top: calc(var(--header-height) + 0.75rem);
+  }
+
+  /* Prevent horizontal transform overflow during scroll reveals */
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(24px) !important;
+  }
+
+  /* Re-position floating badges within terminal card bounds to prevent horizontal overflow */
+  .badge-1 {
+    top: -12px;
+    right: 14px;
+  }
+
+  .badge-2 {
+    bottom: -12px;
+    left: 14px;
+  }
+
+  .floating-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-category-card.full-width-card {
+    grid-column: span 1;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column-reverse;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .back-to-top-btn {
+    padding: 0.55rem 1.15rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+  }
+
+  .floating-back-top {
+    bottom: calc(18px + var(--safe-bottom));
+    right: calc(16px + var(--safe-right));
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Phones & Compact Viewports (600px and down) */
+@media (max-width: 600px) {
+  /* Compact Timeline Structure to give maximum room to content */
+  .timeline-line {
+    left: 9px;
+  }
+
+  .timeline-marker {
+    left: 2px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .timeline-item {
+    padding-left: 28px;
+  }
+
+  .experience-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .exp-header {
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .exp-role {
+    font-size: 1.25rem;
+  }
+
+  .exp-company {
+    font-size: 0.95rem;
+  }
+
+  .exp-date-box {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .exp-summary {
+    font-size: 0.92rem;
+    padding-left: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .responsibilities-list {
+    gap: 0.65rem;
+  }
+
+  .responsibilities-list li {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .exp-tags {
+    gap: 0.4rem;
+    padding-top: 1rem;
+  }
+
+  .exp-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  /* Projects Compact Layout */
+  .project-card {
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-lg);
+    gap: 1.5rem;
+  }
+
+  .project-name {
+    font-size: 1.35rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-actions .btn {
+    width: 100%;
+  }
+
+  .features-list li {
+    font-size: 0.86rem;
+  }
+}
+
+/* Mobile Phones (540px and down) */
+@media (max-width: 540px) {
+  /* Hero CTA full-width stack for thumb ease */
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .hero-socials {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .hero-location-tag {
+    margin-left: 0;
+    width: 100%;
+    font-size: 0.82rem;
+  }
+
+  .about-action {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .about-action .btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .browser-url {
+    max-width: calc(100% - 75px);
+  }
+}
+
+/* Extra Small Phones (480px and down) */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-headline {
+    font-size: 1.15rem;
+  }
+
+  .availability-badge {
+    font-size: 0.76rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .terminal-card {
+    border-radius: var(--radius-md);
+  }
+
+  .terminal-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .terminal-body {
+    padding: 0.85rem 0.9rem;
+    font-size: 0.74rem;
+  }
+
+  /* Info Card Stacking for clean reading */
+  .info-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .info-value {
+    text-align: left;
+    font-size: 0.92rem;
+    word-break: break-word;
+  }
+
+  .info-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* Skills & Education Cards */
+  .skill-category-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .category-title {
+    font-size: 1.05rem;
+  }
+
+  .skill-pill {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.82rem;
+  }
+
+  .education-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .edu-degree {
+    font-size: 1.1rem;
+  }
+
+  .edu-institution {
+    font-size: 0.92rem;
+  }
+
+  .edu-top-row {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* Contact & Form Panel */
+  .contact-card,
+  .form-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .contact-card-title,
+  .form-title {
+    font-size: 1.25rem;
+  }
+
+  .contact-method-item {
+    padding: 0.75rem 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .method-icon-box {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .method-value {
+    font-size: 0.88rem;
+    overflow-wrap: anywhere;
+  }
+
+  .socials-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .social-pill-link {
+    flex: 1 1 calc(50% - 0.45rem);
+    justify-content: center;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .instant-btn-group {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-download-box {
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .btn-submit {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  /* Mockup Visual Adjustments */
+  .mockup-screen {
+    min-height: 200px;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .preview-title {
+    font-size: 1.25rem;
+  }
+
+  .preview-tagline {
+    font-size: 0.78rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .preview-mini-grid {
+    gap: 0.35rem;
+  }
+
+  .preview-stat {
+    padding: 0.35rem 0.2rem;
+  }
+
+  .stat-number {
+    font-size: 0.72rem;
+  }
+
+  .stat-desc {
+    font-size: 0.58rem;
+  }
+}
+
+/* Ultra Compact Devices (360px and down) */
+@media (max-width: 360px) {
+  .brand-logo .logo-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-logo .logo-box {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .mobile-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.15rem;
+    font-size: 0.9rem;
+  }
+
+  .terminal-body {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.72rem;
+  }
+}
+
+/* Landscape Mode on Mobile Phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-nav-drawer {
+    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .mobile-drawer-inner {
+    gap: 1.25rem;
+  }
+
+  .mobile-nav-link {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.98rem;
+    min-height: 38px;
+  }
+
+  .resume-modal-dialog {
+    height: 94vh;
+    height: 94dvh;
+  }
+}
+
+/* --------------------------------------------------------------------------
    16. Accessibility & Reduced Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -2603,7 +3089,12 @@ ul, ol {
     scroll-behavior: auto !important;
   }
 
-  .reveal {
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-fade {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -2623,7 +3114,7 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   17. Resume Preview Modal Styles
+   17. Resume Preview Modal Styles (Responsive Mobile-Optimized)
    -------------------------------------------------------------------------- */
 .resume-modal {
   position: fixed;
@@ -2631,11 +3122,12 @@ ul, ol {
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: clamp(0.5rem, 2vw, 1rem);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.28s ease, visibility 0.28s ease;
@@ -2652,7 +3144,7 @@ ul, ol {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -2663,6 +3155,7 @@ ul, ol {
   width: 100%;
   max-width: 880px;
   height: 88vh;
+  height: 88dvh;
   max-height: 920px;
   background-color: var(--bg-card);
   border: 1px solid var(--accent-red-border);
@@ -2683,42 +3176,49 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
 }
 
 .resume-modal-title-wrap {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  min-width: 0;
 }
 
 .resume-modal-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-main);
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .resume-modal-actions {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .resume-modal-close {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-sm);
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
   cursor: pointer;
+  touch-action: manipulation;
   transition: all var(--transition-fast);
 }
 
@@ -2732,11 +3232,44 @@ ul, ol {
   flex: 1;
   width: 100%;
   height: 100%;
-  background-color: #1f1f1f;
+  background-color: #1a1a1a;
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile PDF Helper Banner */
+.resume-modal-mobile-hint {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.65rem 1rem;
+  background-color: #141414;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.resume-modal-mobile-hint .mobile-hint-link {
+  color: var(--text-main);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.resume-modal-mobile-hint .mobile-hint-link.highlight {
+  color: var(--accent-red);
+}
+
+.resume-modal-mobile-hint .mobile-hint-link:hover {
+  color: var(--accent-red-hover);
 }
 
 .resume-iframe {
+  flex: 1;
   width: 100%;
   height: 100%;
   border: none;

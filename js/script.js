@@ -92,7 +92,7 @@
   function initMobileNav() {
     const mobileToggle = document.getElementById('mobile-toggle');
     const mobileNav = document.getElementById('mobile-nav');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-talk-btn');
+    const mobileLinks = mobileNav ? mobileNav.querySelectorAll('a') : [];
 
     if (!mobileToggle || !mobileNav) return;
 
@@ -105,10 +105,12 @@
 
       if (shouldOpen) {
         mobileNav.classList.add('open');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
       } else {
         mobileNav.classList.remove('open');
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
       }
     }
 
@@ -117,7 +119,7 @@
       toggleMenu();
     });
 
-    // Close when clicking mobile links
+    // Close when clicking any link inside mobile drawer
     mobileLinks.forEach(function (link) {
       link.addEventListener('click', function () {
         toggleMenu(true);
@@ -142,6 +144,13 @@
         toggleMenu(true);
       }
     });
+
+    // Automatically close mobile menu if resized to desktop or rotated
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 1024 && mobileNav.classList.contains('open')) {
+        toggleMenu(true);
+      }
+    }, { passive: true });
   }
 
   /* Helper to ensure all elements in a section are immediately revealed */
@@ -675,12 +684,14 @@
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     }
 
     function closeModal() {
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
 
     if (openBtn) {
