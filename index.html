@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Ayush Kumar Mishra | Web Developer Portfolio</title>
+  <meta name="title" content="Ayush Kumar Mishra | Web Developer Portfolio">
+  <meta name="description" content="Portfolio of Ayush Kumar Mishra, Web Developer based in Lucknow, India. Specializing in responsive, modern web interfaces with HTML5, CSS3, JavaScript, React.js, and Next.js.">
+  <meta name="keywords" content="Ayush Kumar Mishra, Web Developer, Frontend Developer, Lucknow, HTML5, CSS3, JavaScript, React.js, Next.js, Responsive Web Design">
+  <meta name="author" content="Ayush Kumar Mishra">
+  <meta name="theme-color" content="#080808">
+  <link rel="canonical" href="https://ayush-portfolio.vercel.app">
+
+  <!-- Favicon Monogram -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ayush-portfolio.vercel.app">
+  <meta property="og:title" content="Ayush Kumar Mishra | Web Developer Portfolio">
+  <meta property="og:description" content="Web Developer currently working at Shine Infosolutions since August 2026. Developing responsive, user-friendly websites with modern layouts.">
+  <meta property="og:image" content="assets/images/og-preview.svg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Ayush Kumar Mishra | Web Developer Portfolio">
+  <meta property="twitter:description" content="Web Developer currently working at Shine Infosolutions since August 2026. Developing responsive, user-friendly websites.">
+  <meta property="twitter:image" content="assets/images/og-preview.svg">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Top Scroll Progress Indicator -->
+  <div class="scroll-indicator-bar" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Background Noise & Ambient Glow -->
+  <div class="ambient-glow ambient-glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-middle" aria-hidden="true"></div>
+  <div class="background-grid" aria-hidden="true"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <!-- Minimal Logo -->
+      <a href="#hero" class="brand-logo" id="brand-logo" aria-label="Ayush Kumar Mishra - Home">
+        <span class="logo-box">AM</span>
+        <span class="logo-name">AYUSH<span class="accent-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" id="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link" data-section="about">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+          <li class="nav-item"><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link" data-section="education">Education</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action -->
+      <div class="header-actions">
+        <a href="assets/Ayush_Mishra_Resume.pdf" class="btn btn-sm btn-outline-accent header-resume-btn" id="nav-btn-resume" target="_blank" download="Ayush_Kumar_Mishra_Resume.pdf" title="Download Ayush Kumar Mishra's Resume">
+          <svg class="icon-doc" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Resume</span>
+        </a>
+
+        <a href="#contact" class="btn btn-sm btn-primary header-cta" id="nav-cta-talk">
+          <span>Let's Talk</span>
+          <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle" id="mobile-toggle" type="button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <span class="hamburger-bar bar-1"></span>
+          <span class="hamburger-bar bar-2"></span>
+          <span class="hamburger-bar bar-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-nav-drawer" id="mobile-nav" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <ul class="mobile-nav-list">
+          <li><a href="#hero" class="mobile-nav-link" data-section="hero">Home</a></li>
+          <li><a href="#about" class="mobile-nav-link" data-section="about">About</a></li>
+          <li><a href="#skills" class="mobile-nav-link" data-section="skills">Skills</a></li>
+          <li><a href="#experience" class="mobile-nav-link" data-section="experience">Experience</a></li>
+          <li><a href="#projects" class="mobile-nav-link" data-section="projects">Projects</a></li>
+          <li><a href="#education" class="mobile-nav-link" data-section="education">Education</a></li>
+          <li><a href="#contact" class="mobile-nav-link" data-section="contact">Contact</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <a href="assets/Ayush_Mishra_Resume.pdf" class="btn btn-outline-accent btn-block mobile-resume-btn" download="Ayush_Kumar_Mishra_Resume.pdf" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download Resume (PDF)</span>
+          </a>
+          <a href="#contact" class="btn btn-primary btn-block mobile-talk-btn">
+            Let's Talk
+          </a>
+          <div class="mobile-socials">
+            <a href="https://github.com/imayush36" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ayush-mishra-2281a6305/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="mailto:amsp78810@gmail.com" aria-label="Email Ayush">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main id="main-content">
+    
+    <!-- ==================== B. Hero Section ==================== -->
+    <section class="section hero-section" id="hero" aria-label="Introduction">
+      <div class="container hero-container">
+        <!-- Hero Left Column -->
+        <div class="hero-content">
+          <!-- Availability Badge -->
+          <div class="availability-badge" id="hero-status">
+            <span class="status-indicator">
+              <span class="status-ping"></span>
+              <span class="status-core"></span>
+            </span>
+            <span class="status-text">Open to Web Development Opportunities</span>
+          </div>
+
+          <div class="hero-intro-tag">
+            <span class="red-line"></span>
+            <span class="tag-text">HELLO, I'M</span>
+          </div>
+
+          <h1 class="hero-title">
+            Ayush Kumar <span class="highlight-text">Mishra</span>
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <h2 class="hero-headline">
+              <span class="role-static">Specialized in</span>
+              <span class="role-dynamic" id="role-text" aria-live="polite">Web Developer</span>
+              <span class="typing-cursor" aria-hidden="true">|</span>
+            </h2>
+          </div>
+
+          <p class="hero-description">
+            I build responsive, user-friendly websites with modern layouts, clean interfaces, and a focus on seamless user experiences.
+          </p>
+
+          <!-- Action CTAs -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary" id="hero-btn-explore">
+              <span>Explore My Work</span>
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="assets/Ayush_Mishra_Resume.pdf" class="btn btn-outline-accent hero-resume-btn" id="hero-btn-resume" download="Ayush_Kumar_Mishra_Resume.pdf" target="_blank">
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary" id="hero-btn-contact">
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <!-- Social Links & Quick Contact -->
+          <div class="hero-socials">
+            <span class="socials-label">Connect:</span>
+            <div class="social-icons-wrapper">
+              <a href="https://github.com/imayush36" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub profile of Ayush Kumar Mishra" title="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/ayush-mishra-2281a6305/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn profile of Ayush Kumar Mishra" title="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="mailto:amsp78810@gmail.com" class="social-icon-btn" aria-label="Send email to amsp78810@gmail.com" title="Email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+            <div class="hero-location-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Lucknow, Uttar Pradesh, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Interactive Developer Visual -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="terminal-card">
+            <!-- Window Bar -->
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title">ayush-mishra.config.js</div>
+              <div class="terminal-badge">READY</div>
+            </div>
+
+            <!-- Code Content -->
+            <div class="terminal-body">
+              <pre><code><span class="code-comment">// Developer Profile & Core Stack</span>
+<span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-prop">name</span>: <span class="code-str">"Ayush Kumar Mishra"</span>,
+  <span class="code-prop">role</span>: <span class="code-str">"Web Developer"</span>,
+  <span class="code-prop">location</span>: <span class="code-str">"Lucknow, UP, India"</span>,
+  <span class="code-prop">experience</span>: <span class="code-str">"August 2026 – Present (Shine Infosolutions)"</span>,
+  <span class="code-prop">frontendStack</span>: [
+    <span class="code-str">"HTML5"</span>, <span class="code-str">"CSS3"</span>, <span class="code-str">"JavaScript"</span>,
+    <span class="code-str">"React.js"</span>, <span class="code-str">"Next.js"</span>
+  ],
+  <span class="code-prop">designPrinciples</span>: [
+    <span class="code-str">"Responsive Layouts"</span>,
+    <span class="code-str">"Clean Typography"</span>,
+    <span class="code-str">"User-Friendly Navigation"</span>
+  ],
+  <span class="code-prop">status</span>: <span class="code-str">"Building seamless user experiences"</span>
+};
+
+<span class="code-keyword">export default</span> developer;</code></pre>
+            </div>
+
+            <!-- Floating Tech Badges -->
+            <div class="floating-badge badge-1">
+              <span class="badge-icon">⚡</span>
+              <span>Next.js & React</span>
+            </div>
+            <div class="floating-badge badge-2">
+              <span class="badge-icon">🎯</span>
+              <span>Responsive UI</span>
+            </div>
+          </div>
+          <!-- Red ambient glow beneath the card -->
+          <div class="terminal-glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== C. About Me ==================== -->
+    <section class="section about-section" id="about" aria-label="About Me">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">OVERVIEW</span>
+          <h2 class="section-title">About <span class="highlight-text">Me</span></h2>
+          <p class="section-subtitle">A little about my journey</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Column: Story -->
+          <div class="about-story">
+            <div class="story-card">
+              <h3 class="story-heading">Crafting Functional, Responsive & User-Centric Web Solutions</h3>
+              <p class="story-paragraph">
+                I'm a Web Developer based in Lucknow, India, currently working at Shine Infosolutions since August 2026. I work on responsive web pages and user-friendly interfaces using HTML, CSS, JavaScript, and modern frontend technologies. I enjoy transforming ideas into practical web experiences with clean layouts, accessible interactions, and responsive design.
+              </p>
+              
+              <!-- Core Principles Pills -->
+              <div class="core-highlights">
+                <div class="highlight-item">
+                  <div class="highlight-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="highlight-title">Modern Layouts</h4>
+                    <p class="highlight-desc">CSS Grid, Flexbox, and fluid typography for seamless cross-device rendering.</p>
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <div class="highlight-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="highlight-title">Accessible Interactions</h4>
+                    <p class="highlight-desc">Semantic HTML5, keyboard navigation, and smooth user flow.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-action">
+                <a href="#projects" class="btn btn-primary" id="about-btn-projects">
+                  <span>View My Projects</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="assets/Ayush_Mishra_Resume.pdf" download="Ayush_Kumar_Mishra_Resume.pdf" class="btn btn-outline-accent" id="about-btn-resume" target="_blank">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  <span>Download Resume (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Compact Developer Info Card -->
+          <div class="about-info-col">
+            <div class="info-card">
+              <div class="info-card-header">
+                <div class="info-avatar-box">
+                  <span>AM</span>
+                </div>
+                <div>
+                  <h4 class="info-name">Ayush Kumar Mishra</h4>
+                  <span class="info-badge">Web Developer</span>
+                </div>
+              </div>
+
+              <div class="info-divider"></div>
+
+              <div class="info-list">
+                <div class="info-item">
+                  <span class="info-label">Name</span>
+                  <span class="info-value">Ayush Kumar Mishra</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Role</span>
+                  <span class="info-value">Web Developer</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Location</span>
+                  <span class="info-value">Lucknow, India</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Experience</span>
+                  <span class="info-value highlight-accent">August 2026 – Present (Ongoing)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Education</span>
+                  <span class="info-value">BCA, Graduated 2026</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Primary Email</span>
+                  <a href="mailto:amsp78810@gmail.com" class="info-value info-link">amsp78810@gmail.com</a>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Phone</span>
+                  <a href="tel:+919794307570" class="info-value info-link">+91 9794307570</a>
+                </div>
+              </div>
+
+              <!-- Quick Verification Tag -->
+              <div class="info-card-footer">
+                <div class="verified-tag">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Verified Resume Details &amp; Live Projects</span>
+                </div>
+                <a href="assets/Ayush_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="view-resume-link" title="Open Resume PDF in New Tab">
+                  <span>View PDF</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== D. Skills Section ==================== -->
+    <section class="section skills-section" id="skills" aria-label="Technical Skills">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">CAPABILITIES</span>
+          <h2 class="section-title">Technical <span class="highlight-text">Skills</span></h2>
+          <p class="section-subtitle">Categorized technical toolset based on practical project implementation</p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Category 1: Frontend Development -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="category-title">Frontend Development</h3>
+            </div>
+            <p class="category-desc">Core competencies for responsive, accessible, interactive web interfaces.</p>
+            <div class="skill-items-container">
+              <div class="skill-pill" title="HTML5 Semantic Markup">
+                <span class="pill-dot red"></span>
+                <span class="pill-text">HTML5</span>
+              </div>
+              <div class="skill-pill" title="CSS3 Cascading Style Sheets">
+                <span class="pill-dot red"></span>
+                <span class="pill-text">CSS3</span>
+              </div>
+              <div class="skill-pill" title="Vanilla JavaScript (ES6+)">
+                <span class="pill-dot red"></span>
+                <span class="pill-text">JavaScript</span>
+              </div>
+              <div class="skill-pill" title="React.js Component Architecture">
+                <span class="pill-dot red"></span>
+                <span class="pill-text">React.js</span>
+              </div>
+              <div class="skill-pill" title="Next.js SSR & Static Generation">
+                <span class="pill-dot red"></span>
+                <span class="pill-text">Next.js</span>
+              </div>
+              <div class="skill-pill" title="Fluid & Responsive Layouts">
+                <span class="pill-dot red"></span>
+                <span class="pill-text">Responsive Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Styling and Animation -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m4.93 4.93 4.24 4.24"></path>
+                  <path d="m14.83 9.17 4.24-4.24"></path>
+                  <path d="m14.83 14.83 4.24 4.24"></path>
+                  <path d="m9.17 14.83-4.24 4.24"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">Styling &amp; Animation</h3>
+            </div>
+            <p class="category-desc">Layout systems, utility frameworks, and fluid interaction libraries.</p>
+            <div class="skill-items-container">
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Bootstrap</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Tailwind CSS</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Flexbox</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">CSS Grid</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Framer Motion</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">GSAP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Programming -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">Programming</h3>
+            </div>
+            <p class="category-desc">Scripting foundations and logical problem solving.</p>
+            <div class="skill-items-container">
+              <div class="skill-pill badge-highlighted" title="Basic programming knowledge">
+                <span class="pill-dot red"></span>
+                <span class="pill-text">Python</span>
+                <span class="sub-badge">Basic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Database -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">Database</h3>
+            </div>
+            <p class="category-desc">Basic SQL and document database querying and data management.</p>
+            <div class="skill-items-container">
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">MongoDB</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 5: Tools and Platforms -->
+          <div class="skill-category-card full-width-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">Tools &amp; Platforms</h3>
+            </div>
+            <p class="category-desc">Modern developer environments, version control, and CI/CD hosting workflows.</p>
+            <div class="skill-items-container">
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">GitHub</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Netlify</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Vercel</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">VS Code</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Antigravity</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== E. Work Experience ==================== -->
+    <section class="section experience-section" id="experience" aria-label="Work Experience">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">CAREER</span>
+          <h2 class="section-title">Professional <span class="highlight-text">Experience</span></h2>
+          <p class="section-subtitle">Hands-on industry experience building modern web pages</p>
+        </div>
+
+        <div class="experience-timeline">
+          <!-- Timeline Track Line with dynamic scroll fill -->
+          <div class="timeline-line" aria-hidden="true">
+            <div class="timeline-line-fill" id="timeline-progress"></div>
+          </div>
+
+          <!-- Single Experience Card -->
+          <div class="timeline-item">
+            <!-- Timeline Marker -->
+            <div class="timeline-marker" aria-hidden="true">
+              <span class="marker-dot"></span>
+            </div>
+
+            <!-- Content Card -->
+            <div class="experience-card card-spotlight">
+              <div class="exp-header">
+                <div class="exp-meta-main">
+                  <span class="exp-badge">Active Internship</span>
+                  <h3 class="exp-role">Web Developer Intern</h3>
+                  <h4 class="exp-company">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    <span>Shine Infosolutions</span>
+                  </h4>
+                </div>
+
+                <div class="exp-date-box">
+                  <div class="exp-duration">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>August 2026 – Present</span>
+                  </div>
+                  <span class="exp-total-time">Active / Ongoing Industry Role</span>
+                </div>
+              </div>
+
+              <!-- Summary Quote -->
+              <p class="exp-summary">
+                Worked on developing and maintaining responsive web pages, creating user-friendly interfaces, and implementing modern layouts for web applications.
+              </p>
+
+              <!-- Key Responsibilities -->
+              <div class="exp-responsibilities">
+                <h5 class="responsibilities-title">Key Responsibilities &amp; Impact:</h5>
+                <ul class="responsibilities-list">
+                  <li>
+                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Developed and maintained responsive web pages using HTML5, CSS3, JavaScript, and React.js.</span>
+                  </li>
+                  <li>
+                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Created user-friendly UI layouts for web applications.</span>
+                  </li>
+                  <li>
+                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Used Bootstrap, Flexbox, and CSS Grid for responsive layouts.</span>
+                  </li>
+                  <li>
+                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Worked with Git and GitHub for version control and project collaboration.</span>
+                  </li>
+                  <li>
+                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Performed basic SQL/MySQL database operations and data management.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Stack Tags Used -->
+              <div class="exp-tags">
+                <span class="exp-tag">HTML5</span>
+                <span class="exp-tag">CSS3</span>
+                <span class="exp-tag">JavaScript</span>
+                <span class="exp-tag">React.js</span>
+                <span class="exp-tag">Bootstrap</span>
+                <span class="exp-tag">CSS Grid &amp; Flexbox</span>
+                <span class="exp-tag">Git / GitHub</span>
+                <span class="exp-tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== F. Featured Projects ==================== -->
+    <section class="section projects-section" id="projects" aria-label="Featured Projects">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">PORTFOLIO</span>
+          <h2 class="section-title">Featured <span class="highlight-text">Projects</span></h2>
+          <p class="section-subtitle">Selected work showcasing my web development skills.</p>
+        </div>
+
+        <div class="projects-list">
+          
+          <!-- PROJECT 1: Pulse Heart Centre Website -->
+          <article class="project-card" id="project-pulse-heart">
+            <!-- Browser Mockup Window -->
+            <div class="project-mockup">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-url">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>https://www.pulseheartcentre.in/</span>
+                </div>
+                <div class="browser-action">
+                  <a href="https://www.pulseheartcentre.in/" target="_blank" rel="noopener noreferrer" class="browser-link-icon" aria-label="Open Pulse Heart Centre in new tab">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Interactive CSS-based Website Preview -->
+              <div class="mockup-screen healthcare-theme">
+                <div class="preview-hero">
+                  <div class="preview-badge">
+                    <span class="pulse-ring"></span>
+                    <span>Cardiology &amp; Healthcare Center</span>
+                  </div>
+                  <h4 class="preview-title">Pulse Heart Centre</h4>
+                  <p class="preview-tagline">Advanced Cardiac Care &amp; Comprehensive Diagnostic Excellence</p>
+                  <div class="preview-mini-grid">
+                    <div class="preview-stat">
+                      <span class="stat-number">24/7</span>
+                      <span class="stat-desc">Cardiac Emergency Care</span>
+                    </div>
+                    <div class="preview-stat">
+                      <span class="stat-number">Modern</span>
+                      <span class="stat-desc">Diagnostic Equipment</span>
+                    </div>
+                    <div class="preview-stat">
+                      <span class="stat-number">Expert</span>
+                      <span class="stat-desc">Cardiology Team</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mockup-overlay">
+                  <a href="https://www.pulseheartcentre.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                    <span>Visit Live Website</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details Content -->
+            <div class="project-details">
+              <div class="project-tags">
+                <span class="tech-badge tech-next">Next.js</span>
+                <span class="tech-badge">Healthcare Web App</span>
+                <span class="tech-badge">Responsive UI</span>
+              </div>
+
+              <h3 class="project-name">Pulse Heart Centre Website</h3>
+
+              <p class="project-description">
+                Developed a responsive healthcare website using Next.js, focusing on modern UI/UX design, responsive layouts, and user-friendly navigation. Worked on creating a clean and professional interface to enhance accessibility and deliver a smooth browsing experience across desktop and mobile devices.
+              </p>
+
+              <!-- Features to Highlight -->
+              <div class="project-features">
+                <h5 class="features-title">Features &amp; Highlights:</h5>
+                <ul class="features-list">
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Healthcare-focused website design</span>
+                  </li>
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Responsive desktop and mobile layouts</span>
+                  </li>
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Clean interface and navigation</span>
+                  </li>
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>User-friendly browsing experience</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="project-actions">
+                <a href="https://www.pulseheartcentre.in/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-demo-pulse">
+                  <span>Live Demo</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Hotel Amara Website -->
+          <article class="project-card" id="project-hotel-amara">
+            <!-- Browser Mockup Window -->
+            <div class="project-mockup">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-url">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>https://www.hotelamara.in/</span>
+                </div>
+                <div class="browser-action">
+                  <a href="https://www.hotelamara.in/" target="_blank" rel="noopener noreferrer" class="browser-link-icon" aria-label="Open Hotel Amara in new tab">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Interactive CSS-based Website Preview -->
+              <div class="mockup-screen hotel-theme">
+                <div class="preview-hero">
+                  <div class="preview-badge gold">
+                    <span>★ ★ ★ ★ ★ Luxury Hospitality</span>
+                  </div>
+                  <h4 class="preview-title">Hotel Amara</h4>
+                  <p class="preview-tagline">Experience Sophisticated Living &amp; Warm Hospitality</p>
+                  <div class="preview-mini-grid">
+                    <div class="preview-stat">
+                      <span class="stat-number">Deluxe</span>
+                      <span class="stat-desc">Suites &amp; Accommodations</span>
+                    </div>
+                    <div class="preview-stat">
+                      <span class="stat-number">Dining</span>
+                      <span class="stat-desc">Multi-Cuisine Restaurant</span>
+                    </div>
+                    <div class="preview-stat">
+                      <span class="stat-number">Events</span>
+                      <span class="stat-desc">Banquets &amp; Conferences</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mockup-overlay">
+                  <a href="https://www.hotelamara.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                    <span>Visit Live Website</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details Content -->
+            <div class="project-details">
+              <div class="project-tags">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Hospitality</span>
+              </div>
+
+              <h3 class="project-name">Hotel Amara Website</h3>
+
+              <p class="project-description">
+                Developed a responsive hotel website using HTML5, CSS3, and JavaScript, focusing on modern UI design, attractive layouts, and user-friendly navigation. Worked on responsive web pages to provide a smooth browsing experience across desktop and mobile devices.
+              </p>
+
+              <!-- Features to Highlight -->
+              <div class="project-features">
+                <h5 class="features-title">Features &amp; Highlights:</h5>
+                <ul class="features-list">
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Hotel website interface</span>
+                  </li>
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Modern and attractive layouts</span>
+                  </li>
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Responsive web pages</span>
+                  </li>
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>User-friendly navigation</span>
+                  </li>
+                  <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Smooth browsing across devices</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="project-actions">
+                <a href="https://www.hotelamara.in/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-demo-amara">
+                  <span>Live Demo</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== G. Education Section ==================== -->
+    <section class="section education-section" id="education" aria-label="Education">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">ACADEMIC BACKGROUND</span>
+          <h2 class="section-title">Academic <span class="highlight-text">Education</span></h2>
+          <p class="section-subtitle">Formal qualifications and academic milestones</p>
+        </div>
+
+        <div class="education-grid">
+          
+          <!-- Education Card 1: BCA -->
+          <div class="education-card featured-degree">
+            <div class="edu-top-row">
+              <span class="edu-year-badge">Graduated 2026</span>
+              <span class="edu-type-pill">Undergraduate</span>
+            </div>
+            <div class="edu-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+            <h4 class="edu-institution">Shri Ramswaroop Memorial University</h4>
+            <div class="edu-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Lucknow, Uttar Pradesh</span>
+            </div>
+            <p class="edu-summary-text">
+              Comprehensive study of computer applications, data structures, software development, database management, and modern web application development.
+            </p>
+          </div>
+
+          <!-- Education Card 2: Senior Secondary -->
+          <div class="education-card">
+            <div class="edu-top-row">
+              <span class="edu-year-badge">Passing Year: 2022</span>
+              <span class="edu-type-pill">Class XII</span>
+            </div>
+            <div class="edu-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <h3 class="edu-degree">Senior Secondary (Class XII, PCM)</h3>
+            <h4 class="edu-institution">SMT J R DEVI K I C MATHIYA P T</h4>
+            <div class="edu-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Kushinagar, Uttar Pradesh</span>
+            </div>
+            <p class="edu-summary-text">
+              Specialized in Physics, Chemistry, and Mathematics (PCM), building strong analytical, logical reasoning, and quantitative problem-solving foundations.
+            </p>
+          </div>
+
+          <!-- Education Card 3: Secondary -->
+          <div class="education-card">
+            <div class="edu-top-row">
+              <span class="edu-year-badge">Passing Year: 2020</span>
+              <span class="edu-type-pill">Class X</span>
+            </div>
+            <div class="edu-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <h3 class="edu-degree">Secondary Examination (Class X)</h3>
+            <h4 class="edu-institution">S K I CSEMARA KATHKUIYA</h4>
+            <div class="edu-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Kushinagar, Uttar Pradesh</span>
+            </div>
+            <p class="edu-summary-text">
+              Foundational secondary education covering mathematics, science, language arts, and introductory computer concepts.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== H. Contact Section ==================== -->
+    <section class="section contact-section" id="contact" aria-label="Contact">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">GET IN TOUCH</span>
+          <h2 class="section-title">Let's Build <span class="highlight-text">Something Together</span></h2>
+          <p class="section-subtitle">
+            Have a web development opportunity or a project in mind? Feel free to get in touch. I'd be happy to discuss how I can contribute.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Left: Direct Channels & Resume Download -->
+          <div class="contact-info-panel">
+            <div class="contact-card">
+              <h3 class="contact-card-title">Direct Channels</h3>
+              <p class="contact-card-desc">Reach out directly via email, phone, or professional networks.</p>
+
+              <div class="contact-methods">
+                
+                <!-- Email Link -->
+                <a href="mailto:amsp78810@gmail.com" class="contact-method-item">
+                  <div class="method-icon-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div class="method-details">
+                    <span class="method-label">Email Address</span>
+                    <span class="method-value">amsp78810@gmail.com</span>
+                  </div>
+                </a>
+
+                <!-- Phone Link -->
+                <a href="tel:+919794307570" class="contact-method-item">
+                  <div class="method-icon-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div class="method-details">
+                    <span class="method-label">Phone &amp; WhatsApp</span>
+                    <span class="method-value">+91 9794307570</span>
+                  </div>
+                </a>
+
+                <!-- Location -->
+                <div class="contact-method-item">
+                  <div class="method-icon-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="method-details">
+                    <span class="method-label">Location</span>
+                    <span class="method-value">Lucknow, Uttar Pradesh, India</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Social Profiles -->
+              <div class="contact-socials-box">
+                <span class="socials-box-title">Social Profiles</span>
+                <div class="socials-row">
+                  <a href="https://github.com/imayush36" target="_blank" rel="noopener noreferrer" class="social-pill-link" aria-label="GitHub Profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/ayush-mishra-2281a6305/" target="_blank" rel="noopener noreferrer" class="social-pill-link" aria-label="LinkedIn Profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <span>LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Resume Download & Preview Box -->
+              <div class="resume-download-box">
+                <div class="resume-box-header">
+                  <div class="resume-badge-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                  </div>
+                  <div class="resume-box-titles">
+                    <span class="resume-box-title">Official Curriculum Vitae</span>
+                    <p class="resume-box-note">Ayush Kumar Mishra — Web Developer (Updated 2026)</p>
+                  </div>
+                </div>
+
+                <div class="resume-action-buttons">
+                  <a href="assets/Ayush_Mishra_Resume.pdf" class="btn btn-primary btn-block" id="btn-download-resume" download="Ayush_Kumar_Mishra_Resume.pdf" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Download Resume (PDF)</span>
+                  </a>
+                  <button type="button" class="btn btn-outline-accent btn-block" id="btn-preview-resume-modal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <span>Quick Preview Online</span>
+                  </button>
+                </div>
+
+                <div class="resume-meta-info">
+                  <span class="meta-tag">📄 PDF Format</span>
+                  <span class="meta-tag">⚡ 117 KB</span>
+                  <span class="meta-tag">✓ Direct Download</span>
+                </div>
+                <span class="resume-file-info" id="resume-status-text" style="display:none;"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Right: Contact Form -->
+          <div class="contact-form-panel">
+            <div class="form-card">
+              <h3 class="form-title">Send a Direct Message</h3>
+              <p class="form-instruction">
+                Fill out the form below to send an email directly to <strong>amsp78810@gmail.com</strong>, or message Ayush instantly on WhatsApp at <strong>+91 9794307570</strong>.
+              </p>
+
+              <!-- Accessible Alert Box for Form Feedback -->
+              <div class="form-feedback-alert" id="form-feedback" role="alert" aria-live="assertive" style="display: none;"></div>
+
+              <form class="contact-form" id="contact-form" novalidate>
+                <!-- Full Name Field -->
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">
+                    Full Name <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. John Doe" required autocomplete="name">
+                  </div>
+                  <span class="field-error-msg" id="name-error" aria-live="polite"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">
+                    Email Address <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. john@example.com" required autocomplete="email">
+                  </div>
+                  <span class="field-error-msg" id="email-error" aria-live="polite"></span>
+                </div>
+
+                <!-- Subject Field -->
+                <div class="form-group">
+                  <label for="contact-subject" class="form-label">
+                    Subject <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Web Development Opportunity / Project Inquiry" required>
+                  </div>
+                  <span class="field-error-msg" id="subject-error" aria-live="polite"></span>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                  <label for="contact-message" class="form-label">
+                    Message <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <textarea id="contact-message" name="message" class="form-textarea" rows="5" placeholder="Share project details, timeline, or position requirements..." required></textarea>
+                  </div>
+                  <span class="field-error-msg" id="message-error" aria-live="polite"></span>
+                </div>
+
+                <!-- Submission CTA -->
+                <button type="submit" class="btn btn-primary btn-block btn-submit" id="btn-submit-message">
+                  <span>Send Message (Email)</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+
+                <!-- Quick Instant Dispatch Buttons -->
+                <div class="form-quick-actions">
+                  <div class="quick-actions-divider">
+                    <span>OR SEND INSTANTLY VIA</span>
+                  </div>
+                  <div class="instant-btn-group">
+                    <button type="button" class="btn btn-whatsapp btn-block" id="btn-submit-whatsapp" title="Send pre-filled message directly to +91 9794307570 on WhatsApp">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.07-2.146-.531-1.857-.768-3.056-2.658-3.149-2.782-.093-.124-.755-.998-.755-1.915 0-.917.481-1.368.653-1.554.172-.187.375-.234.5-.234.125 0 .25.002.359.007.115.006.269-.044.421.323.157.38.536 1.309.584 1.403.048.094.08.203.016.328-.063.125-.094.203-.188.312-.094.109-.197.244-.282.328-.094.094-.192.196-.083.383.109.187.484.799 1.037 1.293.713.636 1.314.834 1.502.927.188.094.298.08.408-.046.11-.125.469-.546.594-.734.125-.187.25-.156.422-.094.172.062 1.09.514 1.277.608.188.094.313.14.359.219.046.078.046.452-.098.857z"/>
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.442 5.178L2 22l4.981-1.408A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.062a8.016 8.016 0 01-4.22-1.196l-.303-.18-2.964.838.853-2.883-.198-.316A8.026 8.026 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8.062-8 8.062z"/>
+                      </svg>
+                      <span>Send on WhatsApp</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-block" id="btn-submit-gmail" title="Open message pre-filled in Gmail Web in your browser">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                      <span>Open in Gmail</span>
+                    </button>
+                  </div>
+                </div>
+
+                <p class="form-footnote">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span>Direct delivery to amsp78810@gmail.com and WhatsApp +91 9794307570. No mail app setup required.</span>
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== I. Footer ==================== -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <!-- Footer Brand -->
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo" aria-label="Ayush Kumar Mishra - Back to Top">
+            <span class="logo-box">AM</span>
+            <span class="logo-name">AYUSH<span class="accent-dot">.</span></span>
+          </a>
+          <p class="footer-role">Ayush Kumar Mishra &bull; Web Developer</p>
+          <p class="footer-tagline">
+            Building responsive, user-friendly websites with modern layouts and clean interfaces.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="assets/Ayush_Mishra_Resume.pdf" download="Ayush_Kumar_Mishra_Resume.pdf" class="footer-resume-link"><span class="highlight-text">&bull;</span> Download Resume (PDF)</a></li>
+          </ul>
+        </div>
+
+        <!-- Social & Contact Quick -->
+        <div class="footer-social-col">
+          <h4 class="footer-col-title">Connect</h4>
+          <ul class="footer-social-links">
+            <li>
+              <a href="https://github.com/imayush36" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>GitHub Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/ayush-mishra-2281a6305/" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <span>LinkedIn Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:amsp78810@gmail.com">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>amsp78810@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+919794307570">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>+91 9794307570</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom-row">
+        <p class="copyright-text">
+          &copy; <span id="current-year">2026</span> Ayush Kumar Mishra. All rights reserved.
+        </p>
+        <button class="back-to-top-btn" id="back-to-top" type="button" aria-label="Back to top of page">
+          <span>Back to Top</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Action Button -->
+  <button class="floating-back-top" id="floating-back-top" type="button" aria-label="Scroll back to top" title="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ==================== Resume Quick Preview Modal ==================== -->
+  <div class="resume-modal" id="resume-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="resume-modal-overlay" id="resume-modal-overlay"></div>
+    <div class="resume-modal-dialog">
+      <div class="resume-modal-header">
+        <div class="resume-modal-title-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <h3 class="resume-modal-title" id="resume-modal-title">Ayush Kumar Mishra &bull; Resume</h3>
+        </div>
+        <div class="resume-modal-actions">
+          <a href="assets/Ayush_Mishra_Resume.pdf" download="Ayush_Kumar_Mishra_Resume.pdf" class="btn btn-sm btn-primary" id="modal-download-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download PDF</span>
+          </a>
+          <a href="assets/Ayush_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary" title="Open in Full Tab">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+          <button type="button" class="resume-modal-close" id="resume-modal-close" aria-label="Close resume preview">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="resume-modal-body">
+        <iframe src="assets/Ayush_Mishra_Resume.pdf#view=FitH" class="resume-iframe" title="Ayush Kumar Mishra Resume Preview"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
