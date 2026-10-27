@@ -107,7 +107,7 @@ The portfolio features a curated dark developer theme with high contrast, sharp 
    - Vertical timeline cards with red marker and glowing accent.
    - Verified roles at **Bharat Infotech**:
      - **SEO Executive** (6 Months Experience)
-     - **Web Developer** (August 2026 – Present, Active/Ongoing)
+     - **Web Developer** (6 Months Experience)
    - Key responsibilities, impact metrics & technology tags.
 
 6. **Featured Projects:**
