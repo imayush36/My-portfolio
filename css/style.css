@@ -339,41 +339,71 @@ ul, ol {
   height: 100%;
 }
 
-/* Minimal Logo */
+/* Brand Logo with Illustrated Portrait Avatar */
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.brand-logo:hover {
+  opacity: 0.95;
 }
 
 .logo-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  border-radius: var(--radius-sm);
-  font-size: 0.88rem;
-  font-weight: 800;
-  font-family: var(--font-mono);
-  transition: all var(--transition-fast);
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  border: 1.5px solid var(--accent-red);
+  border-radius: 11px;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 0 12px rgba(255, 87, 87, 0.3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.logo-box .logo-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: inherit;
 }
 
 .brand-logo:hover .logo-box {
-  border-color: var(--accent-red);
-  color: var(--accent-red);
-  box-shadow: 0 0 12px rgba(255, 48, 48, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 87, 87, 0.5);
+  border-color: #ff3333;
+}
+
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
 }
 
 .logo-name {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--text-main);
   font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.logo-subtitle {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent-red);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .accent-dot {
@@ -2871,6 +2901,20 @@ ul, ol {
     --container-padding: 0.85rem;
   }
 
+  .brand-logo .logo-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+  }
+
+  .brand-logo .logo-name {
+    font-size: 1.02rem;
+  }
+
+  .brand-logo .logo-subtitle {
+    font-size: 0.68rem;
+  }
+
   .hero-title {
     font-size: clamp(1.85rem, 8vw, 2.5rem);
     letter-spacing: -0.02em;
@@ -3046,13 +3090,17 @@ ul, ol {
 /* Ultra Compact Devices (360px and down) */
 @media (max-width: 360px) {
   .brand-logo .logo-name {
-    font-size: 1.05rem;
+    font-size: 0.92rem;
+  }
+
+  .brand-logo .logo-subtitle {
+    font-size: 0.60rem;
   }
 
   .brand-logo .logo-box {
     width: 32px;
     height: 32px;
-    font-size: 0.8rem;
+    border-radius: 8px;
   }
 
   .mobile-toggle {
