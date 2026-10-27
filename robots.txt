@@ -1,6 +1,6 @@
 # ==============================================================================
-# Robots.txt for https://ayush-portfolio.vercel.app
-# Portfolio of Ayush Kumar Mishra — Web Developer
+# Robots.txt for https://ayushmishra-gilt.vercel.app
+# Portfolio of Ayush Kumar Mishra — Web Developer & SEO Executive
 # ==============================================================================
 
 User-agent: *
@@ -10,5 +10,5 @@ Allow: /
 Disallow:
 
 # Host and Sitemap locations
-Host: https://ayush-portfolio.vercel.app
-Sitemap: https://ayush-portfolio.vercel.app/sitemap.xml
+Host: https://ayushmishra-gilt.vercel.app
+Sitemap: https://ayushmishra-gilt.vercel.app/sitemap.xml
