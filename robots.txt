@@ -1,0 +1,14 @@
+# ==============================================================================
+# Robots.txt for https://ayush-portfolio.vercel.app
+# Portfolio of Ayush Kumar Mishra — Web Developer
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Disallow nothing - all portfolio content is public & crawlable
+Disallow:
+
+# Host and Sitemap locations
+Host: https://ayush-portfolio.vercel.app
+Sitemap: https://ayush-portfolio.vercel.app/sitemap.xml
