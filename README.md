@@ -90,12 +90,13 @@ The portfolio features a curated dark developer theme with high contrast, sharp 
    - Code terminal visual window featuring developer profile object.
 
 3. **About Me:**
-   - Professional summary reflecting ongoing industry experience at Shine Infosolutions since August 2026.
+   - Professional summary reflecting industry experience at Bharat Infotech (Web Developer & SEO Executive).
    - Clean developer facts card verifying location, education, and credentials.
 
 4. **Technical Skills:**
-   - Grouped into 5 clear categories:
+   - Grouped into clear categories:
      - *Frontend Development* (HTML5, CSS3, JavaScript, React.js, Next.js, Responsive Design)
+     - *SEO & Analytics* (Technical SEO, Google Search Console, Google Analytics, Keyword Research, On-Page & Off-Page SEO)
      - *Styling & Animation* (Bootstrap, Tailwind CSS, Flexbox, CSS Grid, Framer Motion, GSAP)
      - *Programming* (Python - clearly badged as Basic)
      - *Database* (MongoDB, MySQL)
@@ -103,9 +104,11 @@ The portfolio features a curated dark developer theme with high contrast, sharp 
    - No arbitrary progress bars or fake proficiency percentages.
 
 5. **Work Experience:**
-   - Vertical timeline card with light-red marker and glowing accent.
-   - Verified details: **Web Developer Intern** at **Shine Infosolutions** (August 2026 – Present, Active/Ongoing).
-   - Key responsibilities & technology tags.
+   - Vertical timeline cards with red marker and glowing accent.
+   - Verified roles at **Bharat Infotech**:
+     - **SEO Executive** (6 Months Experience)
+     - **Web Developer** (August 2026 – Present, Active/Ongoing)
+   - Key responsibilities, impact metrics & technology tags.
 
 6. **Featured Projects:**
    - **Pulse Heart Centre Website** (Live: `https://www.pulseheartcentre.in/` | Tech: Next.js)

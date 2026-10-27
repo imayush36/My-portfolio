@@ -1333,6 +1333,10 @@ ul, ol {
   padding-left: 55px;
 }
 
+.timeline-item:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
 .timeline-marker {
   position: absolute;
   top: 24px;
