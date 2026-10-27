@@ -22,6 +22,7 @@
 
     const roles = [
       'Web Developer',
+      'SEO Executive',
       'Frontend Developer',
       'UI-Focused Developer'
     ];

@@ -1,6 +1,6 @@
 # Ayush Kumar Mishra — Premium Personal Portfolio Website
 
-A production-ready, high-performance personal developer portfolio website for **Ayush Kumar Mishra**, Web Developer. Built using pure **HTML5**, **CSS3**, and **Vanilla JavaScript** without any external UI frameworks or build steps.
+A production-ready, high-performance personal developer portfolio website for **Ayush Kumar Mishra**, Web Developer & SEO Executive. Built using pure **HTML5**, **CSS3**, and **Vanilla JavaScript** without any external UI frameworks or build steps.
 
 ![Portfolio Banner](assets/images/og-preview.svg)
 
@@ -9,7 +9,7 @@ A production-ready, high-performance personal developer portfolio website for **
 ## 🚀 Live Demo & Repository
 
 - **Developer:** Ayush Kumar Mishra
-- **Role:** Web Developer
+- **Role:** Web Developer & SEO Executive
 - **Location:** Lucknow, Uttar Pradesh, India
 - **Email:** [amsp78810@gmail.com](mailto:amsp78810@gmail.com)
 - **Phone:** [+91 9794307570](tel:+919794307570)
