@@ -1,0 +1,17 @@
+{
+  "name": "ayush-portfolio",
+  "version": "1.0.0",
+  "description": "Personal Portfolio of Ayush Kumar Mishra — Web Developer & SEO Executive",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "web-developer",
+    "seo-executive"
+  ],
+  "author": "Ayush Kumar Mishra",
+  "license": "MIT"
+}
