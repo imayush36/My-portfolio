@@ -448,11 +448,13 @@
     const emailInput = document.getElementById('contact-email');
     const subjectInput = document.getElementById('contact-subject');
     const messageInput = document.getElementById('contact-message');
+    const consentInput = document.getElementById('contact-consent');
 
     const nameError = document.getElementById('name-error');
     const emailError = document.getElementById('email-error');
     const subjectError = document.getElementById('subject-error');
     const messageError = document.getElementById('message-error');
+    const consentError = document.getElementById('consent-error');
 
     const whatsappBtn = document.getElementById('btn-submit-whatsapp');
     const gmailBtn = document.getElementById('btn-submit-gmail');
@@ -463,6 +465,7 @@
       if (emailError) emailError.textContent = '';
       if (subjectError) subjectError.textContent = '';
       if (messageError) messageError.textContent = '';
+      if (consentError) consentError.textContent = '';
       if (feedbackBox) {
         feedbackBox.style.display = 'none';
         feedbackBox.className = 'form-feedback-alert';
@@ -564,6 +567,12 @@
         hasError = true;
       } else if (messageVal.length < 5) {
         messageError.textContent = 'Message must be at least 5 characters long.';
+        hasError = true;
+      }
+
+      // Validate DPDP Consent (India DPDPA 2023)
+      if (consentInput && !consentInput.checked) {
+        consentError.textContent = 'Consent is required under India DPDP Act, 2023 to submit your inquiry.';
         hasError = true;
       }
 
@@ -737,6 +746,82 @@
   }
 
   /* --------------------------------------------------------------------------
+     14. DPDP Act, 2023 Compliance Module (Notice, Banner, & Rights Modal)
+     -------------------------------------------------------------------------- */
+  function initDpdpCompliance() {
+    const modal = document.getElementById('dpdp-modal');
+    const closeBtn = document.getElementById('dpdp-modal-close');
+    const agreeBtn = document.getElementById('dpdp-modal-agree-btn');
+    const overlay = document.getElementById('dpdp-modal-overlay');
+    const openBtns = document.querySelectorAll('.open-dpdp-modal-btn');
+
+    const banner = document.getElementById('dpdp-banner');
+    const bannerAcceptBtn = document.getElementById('dpdp-banner-accept');
+
+    function openModal() {
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+
+    openBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) overlay.addEventListener('click', closeModal);
+    if (agreeBtn) {
+      agreeBtn.addEventListener('click', function () {
+        closeModal();
+        dismissBanner();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Floating Notice Banner
+    function dismissBanner() {
+      if (banner) {
+        banner.classList.remove('visible');
+      }
+      try {
+        localStorage.setItem('dpdp_consent_acknowledged', 'true');
+      } catch (err) {}
+    }
+
+    if (bannerAcceptBtn) {
+      bannerAcceptBtn.addEventListener('click', dismissBanner);
+    }
+
+    // Check if acknowledged
+    try {
+      const acknowledged = localStorage.getItem('dpdp_consent_acknowledged');
+      if (!acknowledged && banner) {
+        setTimeout(function () {
+          banner.classList.add('visible');
+        }, 1200);
+      }
+    } catch (err) {}
+  }
+
+  /* --------------------------------------------------------------------------
      Initialize All Modules When DOM is Ready
      -------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -754,5 +839,6 @@
     initDynamicYear();
     initResumeModal();
     initResumeCheck();
+    initDpdpCompliance();
   });
 })();

@@ -1348,6 +1348,18 @@
                   <span class="field-error-msg" id="message-error" aria-live="polite"></span>
                 </div>
 
+                <!-- DPDP Act, 2023 Explicit Consent -->
+                <div class="form-group dpdp-consent-group">
+                  <label class="checkbox-container" for="contact-consent">
+                    <input type="checkbox" id="contact-consent" name="dpdp_consent" required>
+                    <span class="custom-checkbox" aria-hidden="true"></span>
+                    <span class="checkbox-label-text">
+                      I consent to the collection and processing of my name, email, and message solely for communicating and responding to my inquiry, in compliance with India's <strong>Digital Personal Data Protection (DPDP) Act, 2023</strong>. Read the <button type="button" class="inline-link-btn open-dpdp-modal-btn">Privacy Notice &amp; Data Principal Rights</button>.
+                    </span>
+                  </label>
+                  <span class="field-error-msg" id="consent-error" aria-live="polite"></span>
+                </div>
+
                 <!-- Submission CTA -->
                 <button type="submit" class="btn btn-primary btn-block btn-submit" id="btn-submit-message">
                   <span>Send Message (Email)</span>
@@ -1422,6 +1434,7 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="assets/Ayush_Mishra_Resume.pdf" download="Ayush_Kumar_Mishra_Resume.pdf" class="footer-resume-link"><span class="highlight-text">&bull;</span> Download Resume (PDF)</a></li>
+            <li><button type="button" class="footer-link-btn open-dpdp-modal-btn"><span class="highlight-text">&bull;</span> Privacy Notice (DPDP Act, 2023)</button></li>
           </ul>
         </div>
 
@@ -1517,6 +1530,145 @@
         </div>
         <iframe src="assets/Ayush_Mishra_Resume.pdf#view=FitH" class="resume-iframe" title="Ayush Kumar Mishra Resume Preview"></iframe>
       </div>
+    </div>
+  </div>
+
+  <!-- ==================== DPDP Act, 2023 Privacy Notice Modal ==================== -->
+  <div class="dpdp-modal" id="dpdp-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="dpdp-modal-title">
+    <div class="dpdp-modal-overlay" id="dpdp-modal-overlay"></div>
+    <div class="dpdp-modal-dialog">
+      <div class="dpdp-modal-header">
+        <div class="dpdp-modal-title-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <h3 class="dpdp-modal-title" id="dpdp-modal-title">Digital Personal Data Protection Notice</h3>
+          <span class="dpdp-modal-badge">DPDP Act, 2023</span>
+        </div>
+        <button type="button" class="dpdp-modal-close" id="dpdp-modal-close" aria-label="Close Privacy Notice">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="dpdp-modal-body">
+        <div class="dpdp-notice-intro">
+          This Notice is provided in accordance with <strong>Section 5 of the Digital Personal Data Protection Act, 2023 (DPDPA 2023)</strong> of the Republic of India. It outlines the principles governing the collection, processing, purpose limitation, and storage of personal data, as well as your statutory rights as a <strong>Data Principal</strong>.
+        </div>
+
+        <!-- Section 1: Data Fiduciary -->
+        <div class="dpdp-section">
+          <h4 class="dpdp-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"></circle><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg>
+            1. Identity of Data Fiduciary &amp; Grievance Officer
+          </h4>
+          <p>The Data Fiduciary responsible for determining the purpose and means of processing personal data on this portfolio website is:</p>
+          <div class="dpdp-fiduciary-box">
+            <ul>
+              <li><strong>Data Fiduciary:</strong> Ayush Kumar Mishra</li>
+              <li><strong>Professional Capacity:</strong> Web Developer &amp; SEO Executive</li>
+              <li><strong>Location:</strong> Lucknow, Uttar Pradesh, India</li>
+              <li><strong>Grievance &amp; Privacy Email:</strong> <a href="mailto:amsp78810@gmail.com">amsp78810@gmail.com</a></li>
+              <li><strong>Phone / WhatsApp:</strong> +91 9794307570</li>
+              <li><strong>Response Turnaround:</strong> Maximum 7 working days</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 2: Data Collected & Purpose -->
+        <div class="dpdp-section">
+          <h4 class="dpdp-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            2. Personal Data Collected &amp; Purpose of Processing (Sections 4 &amp; 5)
+          </h4>
+          <p>In strict adherence to the data minimization principle, we collect only the personal data you voluntarily provide through the contact form or direct communication:</p>
+          <ul>
+            <li><strong>Digital Identity Data:</strong> Full Name, Email Address, and Subject line.</li>
+            <li><strong>Communication Data:</strong> The substantive text message, project description, or inquiry content.</li>
+          </ul>
+          <p><strong>Specified Purpose:</strong> The data is processed solely to respond to your project queries, job opportunities, technical consulting, or collaboration requests. Your data is <strong>never sold, leased, rented, or traded</strong> with any third party, ad network, or data broker.</p>
+        </div>
+
+        <!-- Section 3: Lawful Basis & Consent -->
+        <div class="dpdp-section">
+          <h4 class="dpdp-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            3. Lawful Basis: Explicit Consent (Section 6)
+          </h4>
+          <p>Processing is based entirely on your free, specific, informed, unconditional, and unambiguous consent signified by an affirmative action (checking the consent checkbox on the contact form). You possess the unconditional right to withdraw this consent at any time by notifying us via email.</p>
+        </div>
+
+        <!-- Section 4: Data Principal Rights -->
+        <div class="dpdp-section">
+          <h4 class="dpdp-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+            4. Statutory Rights of the Data Principal (Sections 11–14)
+          </h4>
+          <p>Under the DPDP Act, 2023, you hold the following statutory rights:</p>
+          <div class="dpdp-rights-grid">
+            <div class="dpdp-right-card">
+              <h5>Right to Access Information</h5>
+              <p>Request a summary of the personal data collected from you, processing activities performed, and any recipients.</p>
+            </div>
+            <div class="dpdp-right-card">
+              <h5>Right to Correction &amp; Erasure</h5>
+              <p>Request correction of inaccurate data, completion of incomplete data, or permanent deletion/erasure of your contact records.</p>
+            </div>
+            <div class="dpdp-right-card">
+              <h5>Right of Grievance Redressal</h5>
+              <p>Direct access to our Grievance Redressal mechanism via <a href="mailto:amsp78810@gmail.com">amsp78810@gmail.com</a> with resolution within 7 days.</p>
+            </div>
+            <div class="dpdp-right-card">
+              <h5>Right to Nominate</h5>
+              <p>Designate another individual who shall exercise your rights in the event of death or incapacity.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Cookies & Storage -->
+        <div class="dpdp-section">
+          <h4 class="dpdp-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            5. Cookies, Local Storage &amp; Ad Tracking
+          </h4>
+          <p>This website does <strong>not</strong> deploy behavioral advertising cookies, fingerprinting pixels, or third-party marketing trackers. We only store an essential local storage token (<code>dpdp_consent_acknowledged</code>) strictly to remember your acknowledgment of this privacy banner.</p>
+        </div>
+
+        <!-- Section 6: Children's Privacy -->
+        <div class="dpdp-section">
+          <h4 class="dpdp-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            6. Protection of Children's Data (Section 9)
+          </h4>
+          <p>In accordance with Section 9 of the DPDPA 2023, we do not knowingly process personal data of children (individuals under 18 years of age) or undertake tracking or targeted advertising directed at children.</p>
+        </div>
+
+        <!-- Section 7: Regulatory Authority -->
+        <div class="dpdp-section">
+          <h4 class="dpdp-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            7. Regulatory Authority: Data Protection Board of India
+          </h4>
+          <p>If you believe that your rights under the DPDP Act, 2023 have been infringed upon and our internal grievance mechanism has failed to address your concern within the stipulated period, you are entitled to register a complaint directly with the <strong>Data Protection Board of India (DPBI)</strong> in the manner prescribed under the Act.</p>
+        </div>
+      </div>
+      <div class="dpdp-modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" id="dpdp-modal-agree-btn">I Understand &amp; Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Floating DPDP Privacy Consent Banner ==================== -->
+  <div class="dpdp-banner" id="dpdp-banner" role="region" aria-label="Privacy and Data Protection Notice">
+    <div class="dpdp-banner-content">
+      <svg class="dpdp-banner-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+      <div class="dpdp-banner-text">
+        <strong>Privacy Notice (DPDP Act, 2023):</strong> We respect your digital privacy. We only process data you voluntarily share to respond to your inquiries. No third-party ad tracking or selling.
+      </div>
+    </div>
+    <div class="dpdp-banner-actions">
+      <button type="button" class="btn btn-outline-accent btn-sm open-dpdp-modal-btn">Read Notice</button>
+      <button type="button" class="btn btn-primary btn-sm" id="dpdp-banner-accept">Accept &amp; Continue</button>
     </div>
   </div>
 
