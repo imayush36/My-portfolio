@@ -2537,7 +2537,7 @@ ul, ol {
   }
 
   .education-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .contact-grid {
@@ -2619,6 +2619,21 @@ ul, ol {
   .hero-container {
     grid-template-columns: 1fr;
     gap: 2.75rem;
+  }
+
+  .hero-visual {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .badge-1 {
+    top: -12px;
+    right: 14px;
+  }
+
+  .badge-2 {
+    bottom: -12px;
+    left: 14px;
   }
 
   .project-card {
@@ -3439,15 +3454,51 @@ ul, ol {
 
 @media (max-width: 640px) {
   .dpdp-banner {
+    width: calc(100% - 1.25rem);
+    max-width: 100%;
     flex-direction: column;
     align-items: stretch;
-    bottom: 0.75rem;
-    padding: 1rem;
-    gap: 0.85rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    padding: 0.95rem 1rem;
+    gap: 0.75rem;
   }
 
   .dpdp-banner-actions {
-    justify-content: flex-end;
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .dpdp-banner-actions .btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .dpdp-modal-dialog {
+    height: 94vh;
+    height: 94dvh;
+    max-height: 94dvh;
+    border-radius: var(--radius-md);
+  }
+
+  .dpdp-modal-badge {
+    display: none;
+  }
+
+  .dpdp-modal-header {
+    padding: 0.85rem 1rem;
+  }
+
+  .dpdp-modal-body {
+    padding: 1.15rem 0.95rem;
+    font-size: 0.88rem;
+  }
+
+  .dpdp-rights-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }
 
