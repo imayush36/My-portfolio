@@ -71,6 +71,28 @@
   padding: 0;
 }
 
+/* Accessible Skip Link */
+.skip-to-content {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  background-color: var(--accent-red);
+  color: #FFFFFF;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 99999;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+  outline: 3px solid #FFFFFF;
+}
+
 html {
   font-family: var(--font-primary);
   font-size: 16px;
@@ -464,6 +486,14 @@ ul, ol {
 
 .header-resume-btn {
   display: none;
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+  .header-resume-btn {
+    display: inline-flex;
+    padding: 0.42rem 0.85rem;
+    font-size: 0.82rem;
+  }
 }
 
 .mobile-toggle {
@@ -896,6 +926,8 @@ ul, ol {
 .terminal-body pre {
   margin: 0;
   font-family: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* Syntax Highlighting */
@@ -1147,6 +1179,44 @@ ul, ol {
   color: var(--accent-red);
 }
 
+.copyable-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.btn-copy-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-fast);
+  touch-action: manipulation;
+  flex-shrink: 0;
+}
+
+.btn-copy-item:hover,
+.btn-copy-item:focus-visible {
+  color: #FFFFFF;
+  border-color: var(--accent-red);
+  background-color: var(--accent-red);
+  transform: scale(1.06);
+}
+
+.btn-copy-item:active {
+  transform: scale(0.92);
+}
+
 .info-card-footer {
   display: flex;
   align-items: center;
@@ -1184,6 +1254,79 @@ ul, ol {
 /* --------------------------------------------------------------------------
    8. Technical Skills Section
    -------------------------------------------------------------------------- */
+.skills-filter-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.skills-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.45rem;
+  border-radius: var(--radius-full);
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.skills-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.skill-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.48rem 1rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  touch-action: manipulation;
+}
+
+.skill-filter-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.skill-filter-btn.active {
+  color: #FFFFFF;
+  background-color: var(--accent-red);
+  box-shadow: 0 2px 10px rgba(255, 87, 87, 0.35);
+}
+
+.skill-filter-btn .filter-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.skill-category-card.filter-hidden {
+  display: none !important;
+}
+
+.skill-category-card.filter-highlight {
+  animation: pulseCard 0.45s ease;
+}
+
+@keyframes pulseCard {
+  0% { transform: scale(0.97); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1917,17 +2060,32 @@ ul, ol {
 .contact-method-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 0.95rem 1rem;
   background-color: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
 }
 
+.contact-method-item .method-link-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-method-item .method-link-content:hover .method-value {
+  color: var(--accent-red);
+}
+
 .contact-method-item:hover {
   border-color: var(--accent-red);
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 .method-icon-box {
@@ -3776,4 +3934,139 @@ ul, ol {
   justify-content: flex-end;
   gap: 0.75rem;
   flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   19. Mobile Floating Bottom Quick-Action Bar & Toast Notification
+   -------------------------------------------------------------------------- */
+.mobile-bottom-bar {
+  display: none;
+}
+
+.toast-notification {
+  position: fixed;
+  bottom: calc(75px + var(--safe-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(18, 18, 18, 0.96);
+  border: 1px solid var(--accent-red-border);
+  color: #FFFFFF;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 20px var(--accent-red-glow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 10005;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .toast-notification {
+    bottom: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9990;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.4rem 0.5rem calc(0.45rem + var(--safe-bottom)) 0.5rem;
+    background-color: rgba(10, 10, 10, 0.96);
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  body {
+    padding-bottom: calc(64px + var(--safe-bottom));
+  }
+
+  .mobile-bar-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    flex: 1;
+    min-height: 48px;
+    padding: 0.35rem 0.2rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    touch-action: manipulation;
+  }
+
+  .mobile-bar-action:active {
+    transform: scale(0.93);
+  }
+
+  .mobile-bar-action .bar-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .mobile-bar-action:hover,
+  .mobile-bar-action:focus-visible {
+    color: var(--text-main);
+  }
+
+  .mobile-bar-action.action-whatsapp {
+    color: #25d366;
+  }
+
+  .mobile-bar-action.action-whatsapp .bar-icon-wrap {
+    background-color: rgba(37, 211, 102, 0.14);
+  }
+
+  .mobile-bar-action.action-resume {
+    color: var(--accent-red);
+  }
+
+  .mobile-bar-action.action-resume .bar-icon-wrap {
+    background-color: var(--accent-red-subtle);
+  }
+
+  .floating-back-top {
+    bottom: calc(72px + var(--safe-bottom)) !important;
+  }
+
+  .dpdp-banner {
+    bottom: calc(72px + var(--safe-bottom)) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .preview-mini-grid {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
 }

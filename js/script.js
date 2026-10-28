@@ -276,6 +276,11 @@
     if (!heroVisual && !heroContent) return;
 
     window.addEventListener('scroll', function () {
+      if (window.innerWidth < 1024) {
+        if (heroVisual) heroVisual.style.transform = '';
+        if (heroContent) heroContent.style.transform = '';
+        return;
+      }
       const scrollY = window.scrollY;
       if (scrollY < window.innerHeight) {
         if (heroVisual) {
@@ -822,6 +827,104 @@
   }
 
   /* --------------------------------------------------------------------------
+     15. Skills Interactive Category Filter
+     -------------------------------------------------------------------------- */
+  function initSkillsFilter() {
+    const filterBtns = document.querySelectorAll('.skill-filter-btn');
+    const skillCards = document.querySelectorAll('.skill-category-card');
+    if (!filterBtns.length || !skillCards.length) return;
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const targetCategory = this.getAttribute('data-filter');
+
+        filterBtns.forEach(function (b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+
+        skillCards.forEach(function (card) {
+          const category = card.getAttribute('data-category');
+          if (targetCategory === 'all' || category === targetCategory) {
+            card.classList.remove('filter-hidden');
+            card.classList.add('filter-highlight');
+            setTimeout(function () {
+              card.classList.remove('filter-highlight');
+            }, 500);
+          } else {
+            card.classList.add('filter-hidden');
+          }
+        });
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     16. 1-Tap Copy to Clipboard & Toast System
+     -------------------------------------------------------------------------- */
+  function showToast(message) {
+    const toast = document.getElementById('toast-notification');
+    const toastMsg = document.getElementById('toast-msg');
+    if (!toast) return;
+
+    if (toastMsg && message) {
+      toastMsg.textContent = message;
+    }
+
+    toast.classList.add('show');
+    clearTimeout(toast._timeout);
+    toast._timeout = setTimeout(function () {
+      toast.classList.remove('show');
+    }, 2500);
+  }
+
+  function initCopyToClipboard() {
+    const copyButtons = document.querySelectorAll('.btn-copy-item');
+    if (!copyButtons.length) return;
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      textarea.style.top = '0';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(`Copied ${text} to clipboard!`);
+      } catch (err) {
+        showToast('Unable to copy');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    copyButtons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const textToCopy = this.getAttribute('data-copy');
+        if (!textToCopy) return;
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(textToCopy)
+            .then(function () {
+              showToast(`Copied ${textToCopy} to clipboard!`);
+            })
+            .catch(function () {
+              fallbackCopy(textToCopy);
+            });
+        } else {
+          fallbackCopy(textToCopy);
+        }
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
      Initialize All Modules When DOM is Ready
      -------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -840,5 +943,7 @@
     initResumeModal();
     initResumeCheck();
     initDpdpCompliance();
+    initSkillsFilter();
+    initCopyToClipboard();
   });
 })();
