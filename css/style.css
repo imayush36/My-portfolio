@@ -857,19 +857,20 @@ ul, ol {
 .terminal-card {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
+  box-shadow: var(--shadow-lg), 0 0 35px rgba(255, 87, 87, 0.08);
+  overflow: visible;
   z-index: 2;
   transition: border-color var(--transition-base), transform var(--transition-smooth);
 }
 
 .terminal-card:hover {
-  border-color: var(--border-hover);
+  border-color: var(--accent-red-border);
   transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 0 35px rgba(255, 87, 87, 0.18);
 }
 
 .terminal-header {
@@ -879,6 +880,8 @@ ul, ol {
   padding: 0.85rem 1.25rem;
   background-color: #121212;
   border-bottom: 1px solid var(--border-color);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
 }
 
 .terminal-dots {
@@ -915,19 +918,22 @@ ul, ol {
 }
 
 .terminal-body {
-  padding: 1.25rem 1.5rem;
+  padding: 1.15rem 1.35rem;
   font-family: var(--font-mono);
   font-size: 0.82rem;
-  line-height: 1.6;
-  overflow-x: auto;
+  line-height: 1.62;
+  overflow: hidden;
   color: #e0e0e0;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 
 .terminal-body pre {
   margin: 0;
+  padding: 0;
   font-family: inherit;
   white-space: pre-wrap;
   word-break: break-word;
+  overflow: hidden;
 }
 
 /* Syntax Highlighting */
@@ -940,31 +946,34 @@ ul, ol {
 /* Floating Badges */
 .floating-badge {
   position: absolute;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 0.95rem;
-  background-color: rgba(22, 22, 22, 0.95);
-  border: 1px solid var(--border-color);
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  background-color: rgba(20, 20, 20, 0.96);
+  border: 1.5px solid var(--accent-red-border);
   border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-main);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(10px);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75), 0 0 16px rgba(255, 87, 87, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10;
+  white-space: nowrap;
   animation: float 4s ease-in-out infinite;
 }
 
 .badge-1 {
-  top: 15%;
-  right: -15px;
+  top: -14px;
+  right: 18px;
   animation-delay: 0s;
   border-color: var(--accent-red-border);
 }
 
 .badge-2 {
-  bottom: 12%;
-  left: -15px;
+  bottom: -14px;
+  left: 18px;
   animation-delay: 2s;
 }
 
@@ -3096,12 +3105,30 @@ ul, ol {
   }
 
   .terminal-header {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.95rem;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
 
   .terminal-body {
-    padding: 0.85rem 0.9rem;
+    padding: 0.9rem 0.9rem;
     font-size: 0.74rem;
+    line-height: 1.55;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+
+  .badge-1 {
+    top: -11px;
+    right: 12px;
+  }
+
+  .badge-2 {
+    bottom: -11px;
+    left: 12px;
+  }
+
+  .floating-badge {
+    padding: 0.32rem 0.65rem;
+    font-size: 0.72rem;
   }
 
   /* Info Card Stacking for clean reading */
