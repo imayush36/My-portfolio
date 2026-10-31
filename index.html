@@ -14,6 +14,7 @@
   <meta name="theme-color" content="#080808">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://myportfolio-delta-pearl-75.vercel.app/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://myportfolio-delta-pearl-75.vercel.app/sitemap.xml">
 
   <!-- Publication & Modification Dates for SEO & GEO -->
   <meta name="date" content="2024-01-15T08:00:00+05:30">
@@ -72,6 +73,62 @@
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon.png">
 
+    <!-- WebMCP Declarative & Imperative Tool Integration -->
+  <script>
+    if (typeof window !== 'undefined') {
+      window.WebMCP = window.WebMCP || {};
+      if (!navigator.modelContext) {
+        navigator.modelContext = {
+          tools: new Map(),
+          registerTool: function(tool) {
+            if (tool && tool.name) {
+              this.tools.set(tool.name, tool);
+            }
+          },
+          getTools: function() {
+            return Array.from(this.tools.values());
+          }
+        };
+      }
+      navigator.modelContext.registerTool({
+        name: 'submitContactForm',
+        description: 'Submit an inquiry or project proposal to Ayush Kumar Mishra',
+        parameters: {
+          type: 'object',
+          properties: {
+            name: { type: 'string', description: 'Sender full name' },
+            email: { type: 'string', description: 'Sender email address' },
+            subject: { type: 'string', description: 'Subject of inquiry' },
+            message: { type: 'string', description: 'Message details' }
+          },
+          required: ['name', 'email', 'subject', 'message']
+        }
+      });
+      navigator.modelContext.registerTool({
+        name: 'searchFAQ',
+        description: 'Search answers to frequently asked questions about Ayush Kumar Mishra',
+        parameters: {
+          type: 'object',
+          properties: {
+            query: { type: 'string', description: 'Search term or question' }
+          },
+          required: ['query']
+        }
+      });
+      navigator.modelContext.registerTool({
+        name: 'submitQuestion',
+        description: 'Submit a new question or consultation query to Ayush Kumar Mishra',
+        parameters: {
+          type: 'object',
+          properties: {
+            question: { type: 'string', description: 'Question to ask' }
+          },
+          required: ['question']
+        }
+      });
+    }
+  </script>
+
   <!-- Structured Data (JSON-LD Schema.org) for Google Rich Snippets & Knowledge Graph -->
   <script type="application/ld+json">
   {
@@ -97,6 +154,16 @@
           "url": "https://myportfolio-delta-pearl-75.vercel.app/"
         },
         "inLanguage": "en-US",
+                "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            "#hero-display-name",
+            "#lead-paragraph",
+            "#about-extended",
+            ".faq-q-text",
+            ".faq-answer p"
+          ]
+        },
         "dateCreated": "2024-01-15T08:00:00+05:30",
         "dateModified": "2026-10-31T08:00:00+05:30"
       },
@@ -135,6 +202,16 @@
           "height": 630
         },
         "inLanguage": "en-US",
+                "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            "#hero-display-name",
+            "#lead-paragraph",
+            "#about-extended",
+            ".faq-q-text",
+            ".faq-answer p"
+          ]
+        },
         "datePublished": "2024-01-15T08:00:00+05:30",
         "dateModified": "2026-10-31T08:00:00+05:30"
       },
@@ -483,7 +560,7 @@
         <!-- Column 1: Left Bio & Identity -->
         <div class="hero-left-content" id="about">
           <span class="hero-script-tag">Hello, I'm</span>
-          <h1 class="hero-display-name">AYUSH KUMAR MISHRA</h1>
+          <h1 class="hero-display-name" id="hero-display-name">AYUSH KUMAR MISHRA<span class="visually-hidden"> - Web Developer &amp; SEO Executive in Lucknow</span></h1>
           <div class="hero-role-badge">WEB DEVELOPER &amp; SEO EXECUTIVE IN LUCKNOW, INDIA</div>
           <p class="hero-bio-short">
             I am <strong>Ayush Kumar Mishra</strong>, a passionate <strong>Web Developer</strong> and <strong>SEO Executive</strong> based in <strong>Lucknow, Uttar Pradesh, India</strong>. Currently driving digital solutions at <strong>Bharat Infotech</strong>, I specialize in engineering responsive, high-speed web applications with modern frontend frameworks including <strong>React.js</strong>, <strong>Next.js</strong>, JavaScript (ES6+), HTML5, and CSS3.
@@ -547,7 +624,7 @@
     <section class="section projects-section" id="projects" aria-label="Projects">
       <div class="container">
         <div class="selected-projects-header">
-          <h2 class="section-title-editorial">PROJECTS</h2>
+          <h2 class="section-title-editorial" id="heading-projects">PROJECTS</h2>
           <a href="projects.html" class="view-all-link" aria-label="View all projects on dedicated archive page">
             <span>VIEW ALL PROJECTS</span>
             <span aria-hidden="true">&rarr;</span>
@@ -567,7 +644,7 @@
                 <span class="browser-url-text">https://www.pulseheartcentre.in/</span>
               </div>
               <div class="preview-inner-box pulse-bg">
-                <span class="preview-badge-pill">Cardiology &amp; Healthcare</span>
+                <span class="preview-badge-pill">Cardiology &amp; Medical Clinic</span>
                 <p class="preview-hero-title">Pulse Heart Centre</p>
                 <p class="preview-hero-sub">Advanced Cardiac Diagnostics &amp; Patient-Centric Experience</p>
                 <div class="preview-stat-row">
@@ -585,8 +662,8 @@
             <div class="editorial-card-footer">
               <span class="proj-num">01</span>
               <div class="proj-details">
-                <h3 class="proj-heading">PULSE HEART CENTRE</h3>
-                <span class="proj-category">HEALTHCARE WEB PLATFORM</span>
+                <h3 class="proj-heading" id="heading-proj-pulse">PULSE HEART CENTRE</h3>
+                <span class="proj-category">CARDIAC WEB PLATFORM</span>
                 <p class="proj-narrative">Developed a responsive cardiac healthcare web portal with modern Next.js and React.js architecture, featuring appointment bookings, patient diagnostics guides, and optimized local SEO for maximum clinic visibility.</p>
               </div>
               <a href="https://www.pulseheartcentre.in/" target="_blank" rel="noopener noreferrer" class="proj-action-arrow" aria-label="Visit Pulse Heart Centre website">&rarr;</a>
@@ -623,7 +700,7 @@
             <div class="editorial-card-footer">
               <span class="proj-num">02</span>
               <div class="proj-details">
-                <h3 class="proj-heading">HOTEL AMARA</h3>
+                <h3 class="proj-heading" id="heading-proj-amara">HOTEL AMARA</h3>
                 <span class="proj-category">HOSPITALITY WEBSITE</span>
                 <p class="proj-narrative">Engineered an elegant luxury hotel booking interface with semantic HTML5, CSS Grid layouts, and smooth mobile interactions, boosting direct reservations and on-page search discoverability.</p>
               </div>
@@ -661,7 +738,7 @@
             <div class="editorial-card-footer">
               <span class="proj-num">03</span>
               <div class="proj-details">
-                <h3 class="proj-heading">MY PORTFOLIO</h3>
+                <h3 class="proj-heading" id="heading-proj-portfolio">MY PORTFOLIO</h3>
                 <span class="proj-category">PERSONAL PORTFOLIO &amp; SEO SHOWCASE</span>
                 <p class="proj-narrative">Designed and developed a bespoke, high-performance web portfolio featuring an award-winning dark-red editorial design, 96%+ technical SEO audit rating, Schema.org rich snippets, and fluid mobile responsiveness.</p>
               </div>
@@ -680,18 +757,18 @@
           
           <!-- Column 1: Education -->
           <div class="showcase-col col-edu-skills">
-            <h2 class="col-main-title">EDUCATION</h2>
+            <h2 class="col-main-title" id="heading-education">EDUCATION</h2>
 
             <!-- Education Sub-block -->
             <div class="sub-block">
               <span class="col-sub-tag">ACADEMIC BACKGROUND</span>
               <div class="edu-item">
-                <h3 class="edu-title">Bachelor of Computer Applications (BCA)</h3>
+                <h3 class="edu-title" id="heading-edu-bca">Bachelor of Computer Applications (BCA)</h3>
                 <span class="edu-school">Shri Ramswaroop Memorial University</span>
                 <span class="edu-year">2023 &mdash; 2026</span>
               </div>
               <div class="edu-item">
-                <h3 class="edu-title">Senior Secondary (Class XII, PCM)</h3>
+                <h3 class="edu-title" id="heading-edu-xii">Senior Secondary (Class XII, PCM)</h3>
                 <span class="edu-school">SMT J R DEVI K I C MATHIYA P T</span>
                 <span class="edu-year">2022</span>
               </div>
@@ -700,14 +777,15 @@
 
           <!-- Column 2: Work Process Timeline (01 to 05) -->
           <div class="showcase-col col-work-process" id="process">
-            <h2 class="col-main-title">WORK PROCESS</h2>
+            <h2 class="col-main-title" id="heading-work-process">WORK PROCESS</h2>
+        <h3 class="visually-hidden" id="how-to-process">How to develop high-performance web applications with SEO?</h3>
 
             <div class="process-timeline">
               <!-- Step 01 -->
               <div class="process-step">
                 <div class="step-num-bubble">01</div>
                 <div class="step-content">
-                  <h3 class="step-title">DISCOVER</h3>
+                  <h3 class="step-title" id="heading-process-discover">DISCOVER</h3>
                   <p class="step-desc">Understanding client goals, target audience, technical scope, and project requirements.</p>
                 </div>
               </div>
@@ -716,7 +794,7 @@
               <div class="process-step">
                 <div class="step-num-bubble">02</div>
                 <div class="step-content">
-                  <h3 class="step-title">IDEATE</h3>
+                  <h3 class="step-title" id="heading-process-ideate">IDEATE</h3>
                   <p class="step-desc">Planning component architecture, responsive wireframing, and creating solid technical concepts.</p>
                 </div>
               </div>
@@ -725,7 +803,7 @@
               <div class="process-step">
                 <div class="step-num-bubble">03</div>
                 <div class="step-content">
-                  <h3 class="step-title">DESIGN</h3>
+                  <h3 class="step-title" id="heading-process-design">DESIGN</h3>
                   <p class="step-desc">Crafting modern visual layouts, sleek dark modes, and micro-interactions focused on high conversion.</p>
                 </div>
               </div>
@@ -734,7 +812,7 @@
               <div class="process-step">
                 <div class="step-num-bubble">04</div>
                 <div class="step-content">
-                  <h3 class="step-title">DEVELOP</h3>
+                  <h3 class="step-title" id="heading-process-develop">DEVELOP</h3>
                   <p class="step-desc">Building fast, semantic, accessible, and cross-device responsive websites with clean code.</p>
                 </div>
               </div>
@@ -743,7 +821,7 @@
               <div class="process-step">
                 <div class="step-num-bubble">05</div>
                 <div class="step-content">
-                  <h3 class="step-title">DELIVER</h3>
+                  <h3 class="step-title" id="heading-process-deliver">DELIVER</h3>
                   <p class="step-desc">Testing, Core Web Vitals optimization, technical SEO verification, and launching with perfection.</p>
                 </div>
               </div>
@@ -779,7 +857,7 @@
         <!-- Section Header -->
         <div class="section-header">
           <span class="section-tag">CAREER</span>
-          <h2 class="section-title">Professional <span class="highlight-text">Experience</span></h2>
+          <h2 class="section-title" id="heading-experience">Professional <span class="highlight-text">Experience</span></h2>
           <p class="section-subtitle">Hands-on industry experience building modern web pages</p>
         </div>
 
@@ -801,8 +879,8 @@
               <div class="exp-header">
                 <div class="exp-meta-main">
                   <span class="exp-badge">Professional Role &bull; 6 Months</span>
-                  <h3 class="exp-role">SEO Executive</h3>
-                  <h4 class="exp-company">
+                  <h3 class="exp-role" id="heading-exp-role-seo">SEO Executive</h3>
+                  <h4 class="exp-company" id="heading-exp-company-seo">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                       <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
@@ -832,7 +910,7 @@
 
               <!-- Key Responsibilities -->
               <div class="exp-responsibilities">
-                <h5 class="responsibilities-title">Key Responsibilities &amp; Impact:</h5>
+                <h5 class="responsibilities-title" id="heading-exp-tasks-seo">Key Responsibilities &amp; Impact:</h5>
                 <ul class="responsibilities-list">
                   <li>
                     <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -884,8 +962,8 @@
               <div class="exp-header">
                 <div class="exp-meta-main">
                   <span class="exp-badge">Professional Role &bull; 6 Months</span>
-                  <h3 class="exp-role">Web Developer</h3>
-                  <h4 class="exp-company">
+                  <h3 class="exp-role" id="heading-exp-role-dev">Web Developer</h3>
+                  <h4 class="exp-company" id="heading-exp-company-dev">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                       <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
@@ -915,7 +993,7 @@
 
               <!-- Key Responsibilities -->
               <div class="exp-responsibilities">
-                <h5 class="responsibilities-title">Key Responsibilities &amp; Impact:</h5>
+                <h5 class="responsibilities-title" id="heading-exp-tasks-dev">Key Responsibilities &amp; Impact:</h5>
                 <ul class="responsibilities-list">
                   <li>
                     <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -963,7 +1041,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">COMMON QUESTIONS</span>
-          <h2 class="section-title">Frequently Asked <span class="highlight-text">Questions</span></h2>
+          <h2 class="section-title" id="heading-faq">Frequently Asked <span class="highlight-text">Questions</span></h2>
           <p class="section-subtitle">Insights into my web development workflow, technical SEO expertise, and freelance collaboration.</p>
         </div>
 
@@ -971,7 +1049,7 @@
           <!-- FAQ Item 1 -->
           <details class="faq-item" open>
             <summary class="faq-question">
-              <span class="faq-q-text">Who is Ayush Kumar Mishra and what are his core specializations?</span>
+              <h3 class="faq-q-text" id="faq-heading-who">Who is Ayush Kumar Mishra and what are his core specializations?</h3>
               <span class="faq-icon" aria-hidden="true">+</span>
             </summary>
             <div class="faq-answer">
@@ -984,7 +1062,7 @@
           <!-- FAQ Item 2 -->
           <details class="faq-item" open>
             <summary class="faq-question">
-              <span class="faq-q-text">What modern frontend technologies does Ayush Kumar Mishra work with?</span>
+              <h3 class="faq-q-text" id="faq-heading-tech">What modern frontend technologies does Ayush Kumar Mishra work with?</h3>
               <span class="faq-icon" aria-hidden="true">+</span>
             </summary>
             <div class="faq-answer">
@@ -997,7 +1075,7 @@
           <!-- FAQ Item 3 -->
           <details class="faq-item" open>
             <summary class="faq-question">
-              <span class="faq-q-text">What Search Engine Optimization (SEO) services does Ayush offer?</span>
+              <h3 class="faq-q-text" id="faq-heading-seo">What Search Engine Optimization (SEO) services does Ayush offer?</h3>
               <span class="faq-icon" aria-hidden="true">+</span>
             </summary>
             <div class="faq-answer">
@@ -1010,7 +1088,7 @@
           <!-- FAQ Item 4 -->
           <details class="faq-item" open>
             <summary class="faq-question">
-              <span class="faq-q-text">How can I hire Ayush Kumar Mishra for web development or SEO projects?</span>
+              <h3 class="faq-q-text" id="faq-heading-hire">How can I hire Ayush Kumar Mishra for web development or SEO projects?</h3>
               <span class="faq-icon" aria-hidden="true">+</span>
             </summary>
             <div class="faq-answer">
@@ -1030,7 +1108,7 @@
           
           <!-- Left Column: Title & Headline -->
           <div class="contact-editorial-left">
-            <h2 class="contact-editorial-title">
+            <h2 class="contact-editorial-title" id="heading-contact">
               LET'S WORK<br>TOGETHER <span class="title-star" aria-hidden="true">✦</span>
             </h2>
             <p class="contact-editorial-desc">
@@ -1095,20 +1173,20 @@
         <!-- Interactive Direct Message Form & DPDP Act 2023 Consent -->
         <div class="contact-form-panel" style="margin-top: 3.5rem;">
           <div class="form-card">
-            <h3 class="form-title">Send a Direct Message</h3>
+            <h3 class="form-title" id="heading-contact-form">Send a Direct Message</h3>
             <p class="form-instruction">
               Fill out the form below to message Ayush Kumar Mishra directly via email, or send instantly via WhatsApp at <strong>+91 9794307570</strong>.
             </p>
 
             <div class="form-feedback-alert" id="form-feedback" role="alert" aria-live="assertive" style="display: none;"></div>
 
-            <form class="contact-form" id="contact-form" novalidate>
+            <form class="contact-form" id="contact-form" novalidate toolname="submitContactForm" tooldescription="Submit inquiry, project requirements, or message to Ayush Kumar Mishra">
               <div class="form-group">
                 <label for="contact-name" class="form-label">
                   Full Name <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <div class="input-wrapper">
-                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. John Doe" required autocomplete="name">
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. John Doe" required autocomplete="name" toolparamdescription="Sender full name">
                 </div>
                 <span class="field-error-msg" id="name-error" aria-live="polite"></span>
               </div>
@@ -1118,7 +1196,7 @@
                   Email Address <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <div class="input-wrapper">
-                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. john@example.com" required autocomplete="email">
+                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. john@example.com" required autocomplete="email" toolparamdescription="Sender valid email address">
                 </div>
                 <span class="field-error-msg" id="email-error" aria-live="polite"></span>
               </div>
@@ -1128,7 +1206,7 @@
                   Subject <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <div class="input-wrapper">
-                  <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Web Development Opportunity / Project Inquiry" required>
+                  <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Web Development Opportunity / Project Inquiry" required toolparamdescription="Subject line or project title">
                 </div>
                 <span class="field-error-msg" id="subject-error" aria-live="polite"></span>
               </div>
@@ -1138,7 +1216,7 @@
                   Message <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <div class="input-wrapper">
-                  <textarea id="contact-message" name="message" class="form-textarea" rows="4" placeholder="Share project details, timeline, or position requirements..." required></textarea>
+                  <textarea id="contact-message" name="message" class="form-textarea" rows="4" placeholder="Share project details, timeline, or position requirements..." required toolparamdescription="Detailed project inquiry or message"></textarea>
                 </div>
                 <span class="field-error-msg" id="message-error" aria-live="polite"></span>
               </div>
@@ -1146,7 +1224,7 @@
               <!-- DPDP Act, 2023 Explicit Consent -->
               <div class="form-group dpdp-consent-group">
                 <label class="checkbox-container" for="contact-consent">
-                  <input type="checkbox" id="contact-consent" name="dpdp_consent" required>
+                  <input type="checkbox" id="contact-consent" name="dpdp_consent" required toolparamdescription="Consent checkbox for data protection processing">
                   <span class="custom-checkbox" aria-hidden="true"></span>
                   <span class="checkbox-label-text">
                     I consent to the collection and processing of my name, email, and message solely for communicating and responding to my inquiry, in compliance with India's <strong>Digital Personal Data Protection (DPDP) Act, 2023</strong>. Read the <button type="button" class="inline-link-btn open-dpdp-modal-btn">Privacy Notice &amp; Data Principal Rights</button>.
@@ -1198,6 +1276,49 @@
       </div>
     </section>
 
+      <!-- Accessible Definitions & Structured Comparison Table for AI Search & LLMs -->
+    <section class="visually-hidden" aria-label="Definitions and Technical Capabilities">
+      <h2 id="heading-definitions">Core Web Development and Technical SEO Definitions</h2>
+      <dl>
+        <dt>Web Developer</dt>
+        <dd>A web developer is a software engineering professional who builds, tests, and maintains responsive web applications using HTML5, CSS3, JavaScript, React.js, and Next.js.</dd>
+        <dt>SEO Executive</dt>
+        <dd>An SEO Executive is a search optimization specialist who improves website ranking, indexing speed, and organic visibility through technical SEO audits, Schema.org markup, and Core Web Vitals optimization.</dd>
+        <dt>Technical SEO</dt>
+        <dd>Technical SEO refers to code, server, and architecture enhancements that help search engine bots crawl, parse, and index web pages efficiently.</dd>
+        <dt>Core Web Vitals</dt>
+        <dd>Core Web Vitals are standardized performance metrics by Google evaluating page loading speed (LCP), user interactivity (INP), and visual layout stability (CLS).</dd>
+      </dl>
+
+      <h2 id="heading-services-table">Web Development &amp; SEO Deliverables Matrix</h2>
+      <table id="skills-matrix-table" summary="Technical competencies and services offered by Ayush Kumar Mishra">
+        <caption>Ayush Kumar Mishra Technical Capabilities &amp; Deliverables Matrix</caption>
+        <thead>
+          <tr>
+            <th scope="col">Specialization</th>
+            <th scope="col">Core Technologies</th>
+            <th scope="col">Deliverables &amp; Business Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frontend Web Development</td>
+            <td>React.js, Next.js, HTML5, CSS3, JavaScript (ES6+)</td>
+            <td>Responsive, lightning-fast web applications with clean architecture and cross-browser support.</td>
+          </tr>
+          <tr>
+            <td>Technical Search Optimization</td>
+            <td>Schema.org JSON-LD, Core Web Vitals, Google Search Console</td>
+            <td>Higher Google search rankings, zero CLS, sub-second load times, and rich snippet eligibility.</td>
+          </tr>
+          <tr>
+            <td>Performance &amp; UI Accessibility</td>
+            <td>WebP image optimization, semantic HTML5, WCAG compliance</td>
+            <td>Flawless mobile user experience, accessible navigation, and 95%+ audit performance.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </main>
 
   <!-- ==================== I. Footer ==================== -->
@@ -1226,15 +1347,19 @@
 
         <!-- Quick Links -->
         <div class="footer-nav-col">
-          <h4 class="footer-col-title">Navigation</h4>
+          <h4 class="footer-col-title" id="heading-footer-nav">Navigation</h4>
           <ul class="footer-nav-links">
             <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Ayush</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="education.html">Education</a></li>
             <li><a href="process.html">Process</a></li>
             <li><a href="experience.html">Experience</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://bharatinfotech.vercel.app/" target="_blank" rel="noopener noreferrer">Bharat Infotech (Employer)</a></li>
+            <li><a href="contact.html#privacy">Privacy Policy</a></li>
+            <li><a href="contact.html#terms">Terms of Service</a></li>
             <li><a href="assets/Ayush_Mishra_Resume.pdf" download="Ayush_Kumar_Mishra_Resume.pdf" class="footer-resume-link"><span class="highlight-text">&bull;</span> Download Resume (PDF)</a></li>
             <li><button type="button" class="footer-link-btn open-dpdp-modal-btn"><span class="highlight-text">&bull;</span> Privacy Notice (DPDP Act, 2023)</button></li>
           </ul>
@@ -1242,7 +1367,7 @@
 
         <!-- Social & Contact Quick -->
         <div class="footer-social-col">
-          <h4 class="footer-col-title">Connect</h4>
+          <h4 class="footer-col-title" id="heading-footer-connect">Connect</h4>
           <ul class="footer-social-links">
             <li>
               <a href="https://github.com/imayush36" target="_blank" rel="noopener noreferrer">
@@ -1275,7 +1400,7 @@
       <!-- Footer Bottom Row -->
       <div class="footer-bottom-row">
         <p class="copyright-text">
-          &copy; <span id="current-year">2026</span> Ayush Kumar Mishra. All rights reserved.
+          &copy; <span id="current-year">2026</span> Ayush Kumar Mishra. All rights reserved. &bull; <a href="contact.html#privacy" style="color:inherit;text-decoration:underline;">Privacy Policy</a> &bull; <a href="contact.html#terms" style="color:inherit;text-decoration:underline;">Terms of Service</a>
         </p>
         <button class="back-to-top-btn" id="back-to-top" type="button" aria-label="Back to top of page">
           <span>Back to Top</span>
@@ -1359,7 +1484,7 @@
 
         <!-- Section 1: Data Fiduciary -->
         <div class="dpdp-section">
-          <h4 class="dpdp-section-title">
+          <h4 class="dpdp-section-title" id="dpdp-heading-intro">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"></circle><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg>
             1. Identity of Data Fiduciary &amp; Grievance Officer
           </h4>
@@ -1378,7 +1503,7 @@
 
         <!-- Section 2: Data Collected & Purpose -->
         <div class="dpdp-section">
-          <h4 class="dpdp-section-title">
+          <h4 class="dpdp-section-title" id="dpdp-heading-purpose">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             2. Personal Data Collected &amp; Purpose of Processing (Sections 4 &amp; 5)
           </h4>
@@ -1392,7 +1517,7 @@
 
         <!-- Section 3: Lawful Basis & Consent -->
         <div class="dpdp-section">
-          <h4 class="dpdp-section-title">
+          <h4 class="dpdp-section-title" id="dpdp-heading-lawful">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
             3. Lawful Basis: Explicit Consent (Section 6)
           </h4>
@@ -1401,26 +1526,26 @@
 
         <!-- Section 4: Data Principal Rights -->
         <div class="dpdp-section">
-          <h4 class="dpdp-section-title">
+          <h4 class="dpdp-section-title" id="dpdp-heading-rights">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
             4. Statutory Rights of the Data Principal (Sections 11–14)
           </h4>
           <p>Under the DPDP Act, 2023, you hold the following statutory rights:</p>
           <div class="dpdp-rights-grid">
             <div class="dpdp-right-card">
-              <h5>Right to Access Information</h5>
+              <h5 id="dpdp-right-access">Right to Access Information</h5>
               <p>Request a summary of the personal data collected from you, processing activities performed, and any recipients.</p>
             </div>
             <div class="dpdp-right-card">
-              <h5>Right to Correction &amp; Erasure</h5>
+              <h5 id="dpdp-right-correction">Right to Correction &amp; Erasure</h5>
               <p>Request correction of inaccurate data, completion of incomplete data, or permanent deletion/erasure of your contact records.</p>
             </div>
             <div class="dpdp-right-card">
-              <h5>Right of Grievance Redressal</h5>
+              <h5 id="dpdp-right-grievance">Right of Grievance Redressal</h5>
               <p>Direct access to our Grievance Redressal mechanism via <a href="mailto:amsp78810@gmail.com">amsp78810@gmail.com</a> with resolution within 7 days.</p>
             </div>
             <div class="dpdp-right-card">
-              <h5>Right to Nominate</h5>
+              <h5 id="dpdp-right-nominate">Right to Nominate</h5>
               <p>Designate another individual who shall exercise your rights in the event of death or incapacity.</p>
             </div>
           </div>
@@ -1428,7 +1553,7 @@
 
         <!-- Section 5: Cookies & Storage -->
         <div class="dpdp-section">
-          <h4 class="dpdp-section-title">
+          <h4 class="dpdp-section-title" id="dpdp-heading-cookies">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             5. Cookies, Local Storage &amp; Ad Tracking
           </h4>
@@ -1437,7 +1562,7 @@
 
         <!-- Section 6: Children's Privacy -->
         <div class="dpdp-section">
-          <h4 class="dpdp-section-title">
+          <h4 class="dpdp-section-title" id="dpdp-heading-children">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             6. Protection of Children's Data (Section 9)
           </h4>
@@ -1446,14 +1571,14 @@
 
         <!-- Section 7: Regulatory Authority -->
         <div class="dpdp-section">
-          <h4 class="dpdp-section-title">
+          <h4 class="dpdp-section-title" id="dpdp-heading-authority">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             7. Regulatory Authority: Data Protection Board of India
           </h4>
           <p>If you believe that your rights under the DPDP Act, 2023 have been infringed upon and our internal grievance mechanism has failed to address your concern within the stipulated period, you are entitled to register a complaint directly with the <strong>Data Protection Board of India (DPBI)</strong> in the manner prescribed under the Act.</p>
         </div>
       </div>
-      <div class="dpdp-modal-footer">
+    <div class="dpdp-modal-footer">
         <button type="button" class="btn btn-primary btn-sm" id="dpdp-modal-agree-btn">I Understand &amp; Close</button>
       </div>
     </div>

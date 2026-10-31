@@ -4,6 +4,14 @@
    Technologies: Vanilla CSS3 (Mobile-first, Flexbox, CSS Grid)
    ========================================================================== */
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local('Inter'), local('Inter-Regular');
+}
+
 /* --------------------------------------------------------------------------
    1. CSS Custom Properties / Design Tokens
    -------------------------------------------------------------------------- */
@@ -5493,6 +5501,9 @@ ul, ol {
 .faq-q-text {
   flex: 1;
   line-height: 1.4;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
 }
 
 .faq-icon {
