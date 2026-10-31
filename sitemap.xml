@@ -17,4 +17,39 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- Work Experience Page -->
+  <url>
+    <loc>https://myportfolio-delta-pearl-75.vercel.app/experience.html</loc>
+    <lastmod>2026-10-31T08:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Education & Credentials Page -->
+  <url>
+    <loc>https://myportfolio-delta-pearl-75.vercel.app/education.html</loc>
+    <lastmod>2026-10-31T08:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Development Methodology & Process Page -->
+  <url>
+    <loc>https://myportfolio-delta-pearl-75.vercel.app/process.html</loc>
+    <lastmod>2026-10-31T08:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Frequently Asked Questions Page -->
+  <url>
+    <loc>https://myportfolio-delta-pearl-75.vercel.app/faq.html</loc>
+    <lastmod>2026-10-31T08:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Contact & Collaboration Page -->
+  <url>
+    <loc>https://myportfolio-delta-pearl-75.vercel.app/contact.html</loc>
+    <lastmod>2026-10-31T08:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>

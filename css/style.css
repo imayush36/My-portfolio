@@ -5718,3 +5718,231 @@ ul, ol {
     gap: 1.5rem;
   }
 }
+
+/* ==================== Generic Subpages Layout (Education, Process, Experience, FAQ, Contact) ==================== */
+.subpage-hero {
+  padding: clamp(6.5rem, 14vw, 8.5rem) 0 clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+  position: relative;
+}
+
+.subpage-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+  margin-bottom: 1.25rem;
+}
+
+.subpage-breadcrumb a {
+  color: #FF5A60;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.subpage-breadcrumb a:hover {
+  color: #FFFFFF;
+}
+
+.subpage-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 5.2rem);
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  line-height: 0.95;
+  margin: 0.5rem 0 1rem;
+}
+
+.subpage-desc {
+  max-width: 720px;
+  margin: 0 auto 2.25rem;
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  line-height: 1.65;
+  color: #B0B5C0;
+}
+
+/* Subpage Detail Cards & Layouts */
+.subpage-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.subpage-detail-card {
+  background: #111114;
+  border: 1px solid #222228;
+  border-radius: 14px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.subpage-detail-card:hover {
+  border-color: #FF2E36;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 46, 54, 0.15);
+}
+
+.subpage-card-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FF5A60;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.subpage-card-heading {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+}
+
+.subpage-card-institution {
+  font-size: 0.9rem;
+  color: #D1D5DB;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.subpage-card-duration {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 46, 54, 0.1);
+  border: 1px solid rgba(255, 46, 54, 0.25);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FF7B80;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.subpage-card-body {
+  color: #C0C5D0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.subpage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.subpage-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #D1D5DB;
+  line-height: 1.5;
+}
+
+.subpage-list li svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: #FF5A60;
+}
+
+/* Process Timeline Specific Grid */
+.process-grid-full {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 4.5rem;
+}
+
+.process-step-fullcard {
+  background: #111114;
+  border: 1px solid #222228;
+  border-radius: 14px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.process-step-fullcard:hover {
+  border-color: #FF2E36;
+  transform: translateX(6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 46, 54, 0.15);
+}
+
+.process-big-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  line-height: 1;
+  color: #FF2E36;
+  background: rgba(255, 46, 54, 0.1);
+  border: 1px solid rgba(255, 46, 54, 0.25);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  flex-shrink: 0;
+}
+
+.process-step-detail h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.process-step-detail p {
+  color: #C0C5D0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.process-deliverables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.process-deliv-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  color: #D1D5DB;
+}
+
+/* FAQ Subpage Grid */
+.faq-subpage-container {
+  max-width: 900px;
+  margin: 0 auto 4.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .subpage-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .process-step-fullcard {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
