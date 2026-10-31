@@ -4099,7 +4099,7 @@ ul, ol {
 /* Single Scroll-Driven Background Typography (Appears only 1 time) */
 .site-background-word {
   position: fixed;
-  top: clamp(130px, 21vh, 210px);
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100vw;
@@ -4121,8 +4121,9 @@ ul, ol {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
-  opacity: 0.36;
-  will-change: transform;
+  opacity: 0.52;
+  will-change: transform, opacity;
+  transition: opacity 0.15s ease-out;
 }
 
 .hero-editorial-container {
@@ -4272,7 +4273,7 @@ ul, ol {
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-  margin-top: clamp(8rem, 18vh, 15rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
 .hero-stat-item {
@@ -4300,6 +4301,15 @@ ul, ol {
   color: #A1A1AA;
   line-height: 1.3;
   text-transform: uppercase;
+}
+
+/* Main Content Sections Layering */
+.projects-section,
+.showcase-3col-section,
+.experience-section {
+  position: relative;
+  z-index: 2;
+  background-color: #080808;
 }
 
 /* Selected Projects (Editorial Showcase) */
@@ -4781,7 +4791,9 @@ ul, ol {
 /* Contact Section (LET'S WORK TOGETHER) */
 .contact-editorial-section {
   padding: var(--section-spacing-y) 0;
-  background: transparent !important;
+  background: #080808;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-editorial-grid {

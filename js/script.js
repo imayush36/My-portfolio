@@ -284,11 +284,16 @@
       const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1000);
       const scrollProgress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
 
-      // --- Horizontal Translation for Single Word ---
-      // Smoothly glides across the screen as user scrolls through the page
+      // --- Horizontal Translation & Fade for Single Word ---
+      // Smoothly glides across the screen and fades out as user scrolls so text never overlaps
       if (singleWord && !prefersReducedMotion) {
         const xOffset = 6 - (scrollProgress * 32); // moves from +6vw at top to -26vw at bottom
+        const fadeThreshold = window.innerHeight * 0.45;
+        const fadeFactor = Math.max(0, Math.min(1, 1 - (scrollY / fadeThreshold)));
+        const targetOpacity = (0.52 * fadeFactor).toFixed(3);
+
         singleWord.style.transform = `translate3d(${xOffset.toFixed(2)}vw, 0, 0)`;
+        singleWord.style.opacity = targetOpacity;
       }
 
       // --- Hero Center Visual Gentle Depth ---
