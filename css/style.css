@@ -5367,6 +5367,19 @@ ul, ol {
   color: #FF8F94;
 }
 
+.company-site-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 90, 96, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.company-site-link:hover {
+  color: #FF5A60;
+  text-decoration-color: #FF5A60;
+}
+
 @media (max-width: 900px) {
   .faq-accordion-grid {
     grid-template-columns: 1fr;
