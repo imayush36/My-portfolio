@@ -287,16 +287,17 @@
       // --- Horizontal Translation & Fade for Single Word ---
       // Smoothly glides across the screen and fades out as user scrolls so text never overlaps
       if (singleWord && !prefersReducedMotion) {
-        if (window.innerWidth < 860) {
-          singleWord.style.display = 'none';
+        if (window.innerWidth < 860 || scrollY > window.innerHeight * 0.7) {
+          singleWord.style.opacity = '0';
+          singleWord.style.visibility = 'hidden';
           return;
         } else {
-          singleWord.style.display = '';
+          singleWord.style.visibility = 'visible';
         }
         const xOffset = 6 - (scrollProgress * 32); // moves from +6vw at top to -26vw at bottom
         const fadeThreshold = window.innerHeight * 0.45;
         const fadeFactor = Math.max(0, Math.min(1, 1 - (scrollY / fadeThreshold)));
-        const targetOpacity = (0.52 * fadeFactor).toFixed(3);
+        const targetOpacity = (0.28 * fadeFactor).toFixed(3);
 
         singleWord.style.transform = `translate3d(${xOffset.toFixed(2)}vw, 0, 0)`;
         singleWord.style.opacity = targetOpacity;
