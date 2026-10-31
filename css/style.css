@@ -5565,3 +5565,156 @@ ul, ol {
     padding-top: 0.85rem;
   }
 }
+
+/* ==================== Projects Archive Page (projects.html) ==================== */
+.projects-page-hero {
+  padding: clamp(6.5rem, 14vw, 8.5rem) 0 clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+  position: relative;
+}
+
+.projects-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+  margin-bottom: 1.25rem;
+}
+
+.projects-breadcrumb a {
+  color: #FF5A60;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projects-breadcrumb a:hover {
+  color: #FFFFFF;
+}
+
+.projects-page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 5.2rem);
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  line-height: 0.95;
+  margin: 0.5rem 0 1rem;
+}
+
+.projects-page-desc {
+  max-width: 680px;
+  margin: 0 auto 2.25rem;
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  line-height: 1.65;
+  color: #B0B5C0;
+}
+
+.projects-filter-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.project-filter-pill {
+  padding: 0.55rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(18, 20, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #C0C5D0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.project-filter-pill:hover,
+.project-filter-pill.active {
+  background: #FF2E36;
+  border-color: #FF2E36;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(255, 46, 54, 0.35);
+}
+
+.projects-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.projects-archive-card {
+  background: #111114;
+  border: 1px solid #222228;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projects-archive-card:hover {
+  border-color: #FF2E36;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 46, 54, 0.2);
+}
+
+.archive-card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.archive-tech-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #D1D5DB;
+}
+
+.archive-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.archive-card-actions .btn {
+  flex: 1;
+  justify-content: center;
+  font-size: 0.8rem;
+  padding: 0.6rem 1rem;
+}
+
+.projects-cta-banner {
+  background: linear-gradient(135deg, rgba(179, 16, 23, 0.25) 0%, rgba(17, 17, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 46, 54, 0.3);
+  border-radius: 16px;
+  padding: clamp(2.5rem, 5vw, 4rem) 2rem;
+  text-align: center;
+  margin: 0 auto 5rem;
+  max-width: 1000px;
+}
+
+@media (max-width: 900px) {
+  .projects-archive-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

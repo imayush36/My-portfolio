@@ -1,5 +1,5 @@
 # ==============================================================================
-# Robots.txt for https://ayushmishra-gilt.vercel.app
+# Robots.txt for https://myportfolio-delta-pearl-75.vercel.app
 # Portfolio of Ayush Kumar Mishra — Web Developer & SEO Executive
 # ==============================================================================
 
@@ -10,5 +10,5 @@ Allow: /
 Disallow:
 
 # Host and Sitemap locations
-Host: https://ayushmishra-gilt.vercel.app
-Sitemap: https://ayushmishra-gilt.vercel.app/sitemap.xml
+Host: https://myportfolio-delta-pearl-75.vercel.app
+Sitemap: https://myportfolio-delta-pearl-75.vercel.app/sitemap.xml

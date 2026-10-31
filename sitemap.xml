@@ -5,9 +5,16 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Primary Portfolio Landing Page -->
   <url>
-    <loc>https://ayushmishra-gilt.vercel.app/</loc>
-    <lastmod>2026-10-28T00:00:00+00:00</lastmod>
+    <loc>https://myportfolio-delta-pearl-75.vercel.app/</loc>
+    <lastmod>2026-10-31T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <!-- Dedicated Projects Archive Page -->
+  <url>
+    <loc>https://myportfolio-delta-pearl-75.vercel.app/projects.html</loc>
+    <lastmod>2026-10-31T08:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
