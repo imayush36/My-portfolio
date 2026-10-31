@@ -4099,7 +4099,7 @@ ul, ol {
 /* Single Scroll-Driven Background Typography (Appears only 1 time) */
 .site-background-word {
   position: fixed;
-  top: 35%;
+  top: clamp(130px, 21vh, 210px);
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100vw;
@@ -4121,7 +4121,7 @@ ul, ol {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
-  opacity: 0.52;
+  opacity: 0.36;
   will-change: transform;
 }
 
@@ -4263,44 +4263,16 @@ ul, ol {
   flex-direction: column;
   justify-content: flex-end;
   align-self: flex-end;
-  height: 100%;
   max-width: 320px;
-  padding-bottom: 2rem;
+  padding-bottom: clamp(1rem, 3vh, 2.5rem);
   margin-top: auto;
-}
-
-.hero-floating-quote {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 1.1rem 1.25rem;
-  background: rgba(18, 18, 22, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  margin-bottom: 2.5rem;
-}
-
-.hero-floating-quote p {
-  font-size: 0.84rem;
-  line-height: 1.45;
-  color: #D4D4D8;
-  margin: 0;
-}
-
-.quote-star {
-  color: #FF2E36;
-  font-size: 1.2rem;
-  line-height: 1;
-  flex-shrink: 0;
 }
 
 .hero-stats-column {
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-  margin-top: clamp(2.5rem, 6vw, 5rem);
+  margin-top: clamp(8rem, 18vh, 15rem);
 }
 
 .hero-stat-item {
