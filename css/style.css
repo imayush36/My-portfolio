@@ -4181,6 +4181,18 @@ ul, ol {
   margin: 0.25rem 0 0.85rem 0;
 }
 
+.hero-role-h1 {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #FF5A60;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+  line-height: 1.2;
+}
+
 .hero-role-badge {
   font-family: var(--font-primary);
   font-size: 0.82rem;
