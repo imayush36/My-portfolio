@@ -5256,3 +5256,128 @@ ul, ol {
   }
 }
 
+/* ==================== Editorial Typography & Section Enhancements ==================== */
+.hero-bio-extended {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #B0B5C0;
+  margin-top: 0.75rem;
+}
+
+.proj-narrative {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #9CA3AF;
+  margin-top: 0.45rem;
+}
+
+/* ==================== FAQ Section Styles (Editorial Dark/Red Theme) ==================== */
+.faq-section {
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.faq-accordion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 2.75rem auto 0;
+}
+
+.faq-item {
+  background: rgba(18, 20, 26, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-item:hover,
+.faq-item[open] {
+  border-color: rgba(229, 9, 20, 0.45);
+  background: rgba(22, 25, 34, 0.9);
+  box-shadow: 0 10px 25px -10px rgba(229, 9, 20, 0.2);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-q-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  font-family: monospace;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #FF5A60;
+  transition: transform 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-icon {
+  transform: rotate(45deg);
+  color: #FF2E36;
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1rem;
+}
+
+.faq-answer p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #C0C5D0;
+  margin: 0;
+}
+
+.faq-answer p strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.faq-inline-link {
+  color: #FF5A60;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.faq-inline-link:hover {
+  color: #FF8F94;
+}
+
+@media (max-width: 900px) {
+  .faq-accordion-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+  .faq-question {
+    padding: 1.1rem 1.25rem;
+    font-size: 0.96rem;
+  }
+  .faq-answer {
+    padding: 0 1.25rem 1.15rem;
+    padding-top: 0.85rem;
+  }
+}
