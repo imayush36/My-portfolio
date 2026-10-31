@@ -267,30 +267,58 @@
   }
 
   /* --------------------------------------------------------------------------
-     7. Hero Parallax & Depth on Scroll
+     7. Single "PORTFOLIO" Word Horizontal Scroll Motion
+     Continuously scrolls horizontally in the background as user scrolls down the page
      -------------------------------------------------------------------------- */
   function initHeroParallax() {
-    if (prefersReducedMotion) return;
-    const heroVisual = document.querySelector('.hero-visual');
-    const heroContent = document.querySelector('.hero-content');
-    if (!heroVisual && !heroContent) return;
+    const singleWord = document.getElementById('portfolio-single-word');
+    const heroVisual = document.querySelector('.hero-center-visual, .hero-visual');
+    const heroContent = document.querySelector('.hero-left-content, .hero-content');
 
-    window.addEventListener('scroll', function () {
-      if (window.innerWidth < 1024) {
+    if (!singleWord && !heroVisual && !heroContent) return;
+
+    let ticking = false;
+
+    function updateScrollMotion() {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1000);
+      const scrollProgress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+
+      // --- Horizontal Translation for Single Word ---
+      // Smoothly glides across the screen as user scrolls through the page
+      if (singleWord && !prefersReducedMotion) {
+        const xOffset = 6 - (scrollProgress * 32); // moves from +6vw at top to -26vw at bottom
+        singleWord.style.transform = `translate3d(${xOffset.toFixed(2)}vw, 0, 0)`;
+      }
+
+      // --- Hero Center Visual Gentle Depth ---
+      if (!prefersReducedMotion && window.innerWidth >= 1024) {
+        if (scrollY < window.innerHeight) {
+          if (heroVisual) {
+            heroVisual.style.transform = `translateY(${scrollY * 0.08}px)`;
+          }
+          if (heroContent) {
+            heroContent.style.transform = `translateY(${scrollY * 0.04}px)`;
+          }
+        }
+      } else {
         if (heroVisual) heroVisual.style.transform = '';
         if (heroContent) heroContent.style.transform = '';
-        return;
       }
-      const scrollY = window.scrollY;
-      if (scrollY < window.innerHeight) {
-        if (heroVisual) {
-          heroVisual.style.transform = `translateY(${scrollY * 0.12}px)`;
-        }
-        if (heroContent) {
-          heroContent.style.transform = `translateY(${scrollY * 0.05}px)`;
-        }
+
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollMotion);
+        ticking = true;
       }
-    }, { passive: true });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateScrollMotion();
   }
 
   /* --------------------------------------------------------------------------
@@ -493,13 +521,13 @@
 
     // Helper: Build WhatsApp pre-filled URL
     function getWhatsAppUrl(data) {
-      const parts = ['*New Portfolio Inquiry for Ayush Mishra*'];
+      const parts = ['*New Portfolio Inquiry for Ayush Kumar Mishra*'];
       if (data.nameVal) parts.push(`*Name:* ${data.nameVal}`);
       if (data.emailVal) parts.push(`*Email:* ${data.emailVal}`);
       if (data.subjectVal) parts.push(`*Subject:* ${data.subjectVal}`);
       if (data.messageVal) parts.push(`*Message:* ${data.messageVal}`);
       if (!data.nameVal && !data.messageVal) {
-        parts.push('Hi Ayush, I saw your portfolio website and would like to discuss a web project.');
+        parts.push('Hi Ayush Kumar Mishra, I saw your portfolio website and would like to discuss a web project.');
       }
       return `https://api.whatsapp.com/send?phone=919794307570&text=${encodeURIComponent(parts.join('\n\n'))}`;
     }
@@ -508,7 +536,7 @@
     function getGmailUrl(data) {
       const su = encodeURIComponent(data.subjectVal ? `Portfolio Inquiry: ${data.subjectVal}` : 'Portfolio Project Inquiry');
       const body = encodeURIComponent(
-        `Hi Ayush,\n\nName: ${data.nameVal || 'Visitor'}\nEmail: ${data.emailVal || 'Not provided'}\nSubject: ${data.subjectVal || 'Inquiry'}\n\nMessage:\n${data.messageVal || 'Hi Ayush, I would like to get in touch.'}`
+        `Hi Ayush Kumar Mishra,\n\nName: ${data.nameVal || 'Visitor'}\nEmail: ${data.emailVal || 'Not provided'}\nSubject: ${data.subjectVal || 'Inquiry'}\n\nMessage:\n${data.messageVal || 'Hi Ayush Kumar Mishra, I would like to get in touch.'}`
       );
       return `https://mail.google.com/mail/?view=cm&fs=1&to=amsp78810@gmail.com&su=${su}&body=${body}`;
     }
@@ -641,7 +669,7 @@
           feedbackBox.className = 'form-feedback-alert alert-success';
           feedbackBox.innerHTML = `
             <strong>✅ Message Sent Successfully!</strong><br>
-            Thank you <strong>${nameVal}</strong>! Your message has been received for <strong>amsp78810@gmail.com</strong>. Ayush will respond to you at <strong>${emailVal}</strong> shortly.
+            Thank you <strong>${nameVal}</strong>! Your message has been received for <strong>amsp78810@gmail.com</strong>. Ayush Kumar Mishra will respond to you at <strong>${emailVal}</strong> shortly.
             <div style="margin-top:0.85rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
               <a href="${waUrl}" target="_blank" class="btn btn-sm btn-whatsapp" style="display:inline-flex;">Chat on WhatsApp (+91 9794307570)</a>
               <a href="${gmailUrl}" target="_blank" class="btn btn-sm btn-secondary" style="display:inline-flex;">Open in Gmail</a>
