@@ -337,7 +337,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=13">
+  <link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
   <!-- Accessible Skip to Content Link -->
@@ -1462,16 +1462,17 @@
   <!-- ==================== Floating DPDP Privacy Consent Banner ==================== -->
   <div class="dpdp-banner" id="dpdp-banner" role="region" aria-label="Privacy and Data Protection Notice">
     <div class="dpdp-banner-content">
-      <svg class="dpdp-banner-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg class="dpdp-banner-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
       </svg>
       <div class="dpdp-banner-text">
-        <strong>Privacy Notice (DPDP Act, 2023):</strong> We respect your digital privacy. We only process data you voluntarily share to respond to your inquiries. No third-party ad tracking or selling.
+        <strong>Privacy Notice (DPDP Act):</strong> We respect your digital privacy. Data shared is used solely to respond to inquiries.
       </div>
     </div>
     <div class="dpdp-banner-actions">
-      <button type="button" class="btn btn-outline-accent btn-sm open-dpdp-modal-btn">Read Notice</button>
+      <button type="button" class="btn btn-outline-accent btn-sm open-dpdp-modal-btn">Notice</button>
       <button type="button" class="btn btn-primary btn-sm" id="dpdp-banner-accept">Accept &amp; Continue</button>
+      <button type="button" class="dpdp-banner-close-btn" id="dpdp-banner-close" aria-label="Dismiss Privacy Notice">&times;</button>
     </div>
   </div>
 

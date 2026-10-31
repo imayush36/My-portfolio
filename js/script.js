@@ -287,6 +287,12 @@
       // --- Horizontal Translation & Fade for Single Word ---
       // Smoothly glides across the screen and fades out as user scrolls so text never overlaps
       if (singleWord && !prefersReducedMotion) {
+        if (window.innerWidth < 860) {
+          singleWord.style.display = 'none';
+          return;
+        } else {
+          singleWord.style.display = '';
+        }
         const xOffset = 6 - (scrollProgress * 32); // moves from +6vw at top to -26vw at bottom
         const fadeThreshold = window.innerHeight * 0.45;
         const fadeFactor = Math.max(0, Math.min(1, 1 - (scrollY / fadeThreshold)));
@@ -846,6 +852,11 @@
 
     if (bannerAcceptBtn) {
       bannerAcceptBtn.addEventListener('click', dismissBanner);
+    }
+
+    const bannerCloseBtn = document.getElementById('dpdp-banner-close');
+    if (bannerCloseBtn) {
+      bannerCloseBtn.addEventListener('click', dismissBanner);
     }
 
     // Check if acknowledged
