@@ -862,7 +862,7 @@ ul, ol {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg), 0 0 35px rgba(255, 87, 87, 0.08);
-  overflow: visible;
+  overflow: hidden;
   z-index: 2;
   transition: border-color var(--transition-base), transform var(--transition-smooth);
 }
@@ -943,65 +943,6 @@ ul, ol {
 .code-prop { color: #8be9fd; }
 .code-str { color: #f1fa8c; }
 
-/* Floating Interactive Badges / Buttons */
-.floating-badge {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.95rem;
-  background: rgba(18, 18, 22, 0.94);
-  border: 1px solid rgba(255, 87, 87, 0.35);
-  border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65), 0 0 16px rgba(255, 87, 87, 0.2);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  z-index: 10;
-  white-space: nowrap;
-  transition: all var(--transition-fast);
-  user-select: none;
-}
-
-.floating-badge:hover {
-  color: #FFFFFF;
-  background: rgba(26, 26, 30, 0.98);
-  border-color: var(--accent-red);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 87, 87, 0.4);
-  transform: translateY(-4px) scale(1.04);
-}
-
-.floating-badge:focus-visible {
-  outline: 2px solid var(--accent-red);
-  outline-offset: 3px;
-}
-
-.badge-1 {
-  top: 60px;
-  right: -24px;
-  animation: floatBadge1 4s ease-in-out infinite;
-}
-
-.badge-2 {
-  bottom: 45px;
-  left: -24px;
-  animation: floatBadge2 4.2s ease-in-out infinite;
-  animation-delay: 1.5s;
-}
-
-@keyframes floatBadge1 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-}
-
-@keyframes floatBadge2 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-}
 
 .terminal-glow {
   position: absolute;
@@ -2856,15 +2797,6 @@ ul, ol {
     margin: 0 auto;
   }
 
-  .badge-1 {
-    top: 55px;
-    right: -14px;
-  }
-
-  .badge-2 {
-    bottom: 40px;
-    left: -14px;
-  }
 
   .project-card {
     grid-template-columns: 1fr;
@@ -2897,21 +2829,6 @@ ul, ol {
     transform: translateY(24px) !important;
   }
 
-  /* Position floating badges on outer edges with safe mobile clearance */
-  .badge-1 {
-    top: 48px;
-    right: -8px;
-  }
-
-  .badge-2 {
-    bottom: 30px;
-    left: -8px;
-  }
-
-  .floating-badge {
-    padding: 0.38rem 0.75rem;
-    font-size: 0.74rem;
-  }
 
   .hero-description {
     font-size: 0.98rem;
@@ -3137,20 +3054,6 @@ ul, ol {
     border-radius: 0 0 var(--radius-md) var(--radius-md);
   }
 
-  .badge-1 {
-    top: 44px;
-    right: -4px;
-  }
-
-  .badge-2 {
-    bottom: 24px;
-    left: -4px;
-  }
-
-  .floating-badge {
-    padding: 0.32rem 0.65rem;
-    font-size: 0.72rem;
-  }
 
   /* Info Card Stacking for clean reading */
   .info-card {
@@ -3380,9 +3283,6 @@ ul, ol {
     transform: none !important;
   }
 
-  .floating-badge {
-    animation: none !important;
-  }
 
   .status-ping {
     animation: none !important;
