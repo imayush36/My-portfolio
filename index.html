@@ -441,8 +441,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=16">
+  <!-- Preload Critical LCP Hero Image -->
+  <link rel="preload" as="image" href="assets/images/hero-portrait.webp" type="image/webp" fetchpriority="high">
+
+  <!-- Main Minified Stylesheet -->
+  <link rel="stylesheet" href="css/style.min.css?v=18">
 </head>
 <body>
   <!-- Accessible Skip to Content Link -->
@@ -455,11 +458,6 @@
   <div class="ambient-glow ambient-glow-top" aria-hidden="true"></div>
   <div class="ambient-glow ambient-glow-middle" aria-hidden="true"></div>
   <div class="background-grid" aria-hidden="true"></div>
-
-  <!-- Single Background Typography (Scrolls horizontally as user scrolls down the page) -->
-  <div class="site-background-word" aria-hidden="true">
-    <div class="single-word-wrap" id="portfolio-single-word">PORTFOLIO</div>
-  </div>
 
   <!-- Header / Navigation Bar (Integrated Status Bar + Main Nav) -->
   <header class="site-header" id="header">
@@ -483,12 +481,6 @@
       <div class="container nav-container">
         <!-- Minimal Logo -->
         <a href="#hero" class="brand-logo" id="brand-logo" aria-label="Ayush Kumar Mishra - Home">
-          <span class="logo-box">
-            <picture>
-              <source srcset="assets/images/ayush-avatar.webp" type="image/webp">
-              <img src="assets/images/ayush-avatar.webp" alt="Ayush Kumar Mishra" class="logo-avatar" width="38" height="38" loading="lazy">
-            </picture>
-          </span>
           <div class="logo-text-group">
             <span class="logo-name">AYUSH KUMAR MISHRA</span>
             <span class="logo-subtitle">Web Developer &amp; SEO Executive</span>
@@ -586,6 +578,11 @@
     <!-- ==================== B. Hero Section (Editorial Dark-Red Layout) ==================== -->
     <section class="hero-section" id="hero" aria-label="Introduction">
 
+      <!-- Single Background Typography (Always visible behind hero content) -->
+      <div class="site-background-word" aria-hidden="true">
+        <div class="single-word-wrap" id="portfolio-single-word">PORTFOLIO</div>
+      </div>
+
       <div class="container hero-editorial-container">
         <!-- Column 1: Left Bio & Identity -->
         <div class="hero-left-content" id="about">
@@ -624,7 +621,7 @@
           <div class="hero-portrait-frame">
             <picture>
               <source srcset="assets/images/hero-portrait.webp" type="image/webp">
-              <img src="assets/images/hero-portrait.webp" alt="Ayush Kumar Mishra - Web Developer &amp; SEO Executive in Lucknow" class="hero-portrait-img" width="440" height="560" loading="lazy">
+              <img src="assets/images/hero-portrait.webp" alt="Ayush Kumar Mishra - Web Developer &amp; SEO Executive in Lucknow" class="hero-portrait-img" width="440" height="560" loading="eager" fetchpriority="high" decoding="async">
             </picture>
           </div>
         </div>
@@ -927,15 +924,15 @@
                       <line x1="8" y1="2" x2="8" y2="6"></line>
                       <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
-                    <span>6 Months Experience</span>
+                    <span>March 2026 – August 2026</span>
                   </div>
-                  <span class="exp-total-time">Industry Role &bull; SEO &amp; Growth</span>
+                  <span class="exp-total-time">6 Months Experience &bull; Active Tenure</span>
                 </div>
               </div>
 
               <!-- Summary Quote -->
               <p class="exp-summary">
-                Executed comprehensive technical, on-page, and off-page SEO strategies to enhance search engine visibility, organic keyword rankings, and website performance across diverse client projects.
+                SEO Executive with 6 months of hands-on experience in on-page SEO, technical SEO, and keyword research. Strong foundation in HTML and CSS, which helps in implementing SEO-friendly page structure, meta tags, and fast, mobile-friendly layouts. Eager to improve search rankings, organic traffic, and website visibility through data-driven SEO strategies.
               </p>
 
               <!-- Key Responsibilities -->
@@ -944,23 +941,27 @@
                 <ul class="responsibilities-list">
                   <li>
                     <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span>Executed in-depth keyword research, competitor analysis, and search intent mapping to drive targeted organic traffic.</span>
+                    <span>Performed keyword research and mapped target keywords to website pages.</span>
                   </li>
                   <li>
                     <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span>Implemented on-page SEO including meta tags, title optimizations, heading structure (H1-H6), internal linking, and content enhancement.</span>
+                    <span>Optimized on-page elements: title tags, meta descriptions, headings (H1–H6), URLs, and image alt text.</span>
                   </li>
                   <li>
                     <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span>Conducted comprehensive technical SEO audits, resolving crawl errors, broken links, indexing issues, and optimizing XML sitemaps and robots.txt.</span>
+                    <span>Conducted technical SEO audits and fixed issues such as broken links, missing tags, and mobile responsiveness.</span>
                   </li>
                   <li>
                     <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span>Monitored web performance, Core Web Vitals, and keyword ranking analytics using Google Search Console and Google Analytics (GA4).</span>
+                    <span>Used HTML and CSS to implement SEO changes directly on web pages and improve page structure and load speed.</span>
                   </li>
                   <li>
                     <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span>Managed off-page SEO initiatives, local business citations, directory submissions, and high-quality backlink acquisition.</span>
+                    <span>Monitored website performance and keyword rankings using Google Search Console and Google Analytics.</span>
+                  </li>
+                  <li>
+                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5757" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Prepared regular SEO reports with findings and recommendations.</span>
                   </li>
                 </ul>
               </div>
@@ -968,12 +969,32 @@
               <!-- Stack Tags Used -->
               <div class="exp-tags">
                 <span class="exp-tag">Technical SEO</span>
-                <span class="exp-tag">Google Search Console</span>
-                <span class="exp-tag">Google Analytics (GA4)</span>
-                <span class="exp-tag">Keyword Research</span>
                 <span class="exp-tag">On-Page SEO</span>
-                <span class="exp-tag">Off-Page SEO</span>
-                <span class="exp-tag">SEO Audit</span>
+                <span class="exp-tag">Keyword Research</span>
+                <span class="exp-tag">Site Audits</span>
+                <span class="exp-tag">Google Search Console</span>
+                <span class="exp-tag">Google Analytics</span>
+                <span class="exp-tag">SEO Reporting</span>
+                <span class="exp-tag">HTML5 &amp; CSS3</span>
+              </div>
+
+              <!-- Action Buttons for SEO Resume -->
+              <div class="exp-actions-row" style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                <a href="assets/Ayush_Kumar_Mishra_SEO_Executive_Resume_ATS.pdf" class="btn btn-sm btn-primary" download="Ayush_Kumar_Mishra_SEO_Executive_Resume_ATS.pdf" target="_blank">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  <span>Download SEO Resume (PDF)</span>
+                </a>
+                <a href="assets/Ayush_Kumar_Mishra_SEO_Executive_Resume_ATS.pdf" class="btn btn-sm btn-outline-accent" target="_blank" rel="noopener noreferrer">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  <span>View SEO Resume</span>
+                </a>
               </div>
             </div>
           </div>
@@ -1382,12 +1403,6 @@
         <!-- Footer Brand -->
         <div class="footer-brand">
           <a href="#hero" class="brand-logo" aria-label="Ayush Kumar Mishra - Back to Top">
-            <span class="logo-box">
-              <picture>
-                <source srcset="assets/images/ayush-avatar.webp" type="image/webp">
-                <img src="assets/images/ayush-avatar.webp" alt="Ayush Kumar Mishra" class="logo-avatar" width="42" height="42" loading="lazy">
-              </picture>
-            </span>
             <div class="logo-text-group">
               <span class="logo-name">Ayush Kumar Mishra</span>
               <span class="logo-subtitle">Web Developer &amp; SEO Executive</span>
@@ -1700,8 +1715,8 @@
     <span class="toast-msg" id="toast-msg">Copied to clipboard!</span>
   </div>
 
-  <!-- Main JavaScript File (Deferred for non-blocking render) -->
-  <script src="js/script.js?v=7" defer></script>
+  <!-- Main JavaScript File (Minified & Deferred for non-blocking render) -->
+  <script src="js/script.min.js?v=8" defer></script>
 </body>
 </html>
 
