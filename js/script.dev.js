@@ -74,16 +74,28 @@
   function initHeaderScroll() {
     const header = document.getElementById('header');
     if (!header) return;
+    let isScrolled = false;
+    let ticking = false;
 
     function updateHeader() {
-      if (window.scrollY > 20) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
+      const scrolled = window.scrollY > 20;
+      if (scrolled !== isScrolled) {
+        isScrolled = scrolled;
+        if (scrolled) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
       }
+      ticking = false;
     }
 
-    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }, { passive: true });
     updateHeader();
   }
 
@@ -176,38 +188,53 @@
 
     if (sections.length === 0 || navLinks.length === 0) return;
 
-    function onScrollSpy() {
-      const scrollY = window.scrollY;
+    let sectionPositions = [];
+    function computeSectionPositions() {
       const headerOffset = 140;
+      sectionPositions = [];
+      sections.forEach(function (section) {
+        sectionPositions.push({
+          id: section.getAttribute('id'),
+          top: section.offsetTop - headerOffset,
+          height: section.offsetHeight
+        });
+      });
+    }
+    computeSectionPositions();
+    window.addEventListener('resize', computeSectionPositions, { passive: true });
 
+    let lastSectionId = '';
+    let ticking = false;
+
+    function onScrollSpy() {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
       let currentSectionId = '';
 
-      sections.forEach(function (section) {
-        const sectionTop = section.offsetTop - headerOffset;
-        const sectionHeight = section.offsetHeight;
-
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          currentSectionId = section.getAttribute('id');
+      for (let i = 0; i < sectionPositions.length; i++) {
+        const pos = sectionPositions[i];
+        if (scrollY >= pos.top && scrollY < pos.top + pos.height) {
+          currentSectionId = pos.id;
+          break;
         }
-      });
+      }
 
-      // Special case: if near bottom of page, activate contact
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 80) {
+      if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 80) {
         currentSectionId = 'contact';
       }
 
-      if (currentSectionId) {
+      if (currentSectionId && currentSectionId !== lastSectionId) {
+        lastSectionId = currentSectionId;
         revealSection(currentSectionId);
+        navLinks.forEach(function (link) {
+          const linkSection = link.getAttribute('data-section');
+          if (linkSection === currentSectionId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
       }
-
-      navLinks.forEach(function (link) {
-        const linkSection = link.getAttribute('data-section');
-        if (linkSection === currentSectionId) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
+      ticking = false;
     }
 
     // Attach click listeners to all anchor links for instant reveal
@@ -220,7 +247,12 @@
       });
     });
 
-    window.addEventListener('scroll', onScrollSpy, { passive: true });
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(onScrollSpy);
+        ticking = true;
+      }
+    }, { passive: true });
     onScrollSpy();
   }
 
@@ -230,15 +262,22 @@
   function initScrollProgress() {
     const progressBar = document.getElementById('scroll-progress');
     if (!progressBar) return;
+    let ticking = false;
 
     function updateProgress() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       progressBar.style.width = scrollPercent.toFixed(2) + '%';
+      ticking = false;
     }
 
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
     updateProgress();
   }
 
@@ -249,6 +288,7 @@
     const timelineSection = document.getElementById('experience');
     const progressLine = document.getElementById('timeline-progress');
     if (!timelineSection || !progressLine) return;
+    let ticking = false;
 
     function updateTimeline() {
       const rect = timelineSection.getBoundingClientRect();
@@ -260,9 +300,15 @@
         const percent = Math.min(Math.max((scrolled / (totalHeight + windowHeight * 0.25)) * 100, 0), 100);
         progressLine.style.height = percent.toFixed(1) + '%';
       }
+      ticking = false;
     }
 
-    window.addEventListener('scroll', updateTimeline, { passive: true });
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(updateTimeline);
+        ticking = true;
+      }
+    }, { passive: true });
     updateTimeline();
   }
 
@@ -386,48 +432,70 @@
       '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, .experience-card'
     );
 
-    // Fallback visibility checker that runs on scroll & load
+    // Batched visibility checker that separates geometry reads from DOM mutations
     function checkAllReveals() {
       const windowHeight = window.innerHeight;
+      const toReveal = [];
+      // 1. Read phase: query geometric properties in batch
       targets.forEach(function (el) {
         if (!el.classList.contains('reveal-visible')) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= windowHeight + 100 && rect.bottom >= -100) {
-            el.classList.add('reveal-visible');
+            toReveal.push(el);
           }
         }
       });
+      // 2. Write phase: mutate DOM in batch without interleaving reads
+      if (toReveal.length > 0) {
+        requestAnimationFrame(function () {
+          toReveal.forEach(function (el) {
+            el.classList.add('reveal-visible');
+          });
+        });
+      }
     }
 
-    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    if (prefersReducedMotion) {
       targets.forEach(el => el.classList.add('reveal-visible'));
       return;
     }
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '120px 0px 60px 0px',
-      threshold: 0
-    };
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        root: null,
+        rootMargin: '120px 0px 60px 0px',
+        threshold: 0
+      };
 
-    const revealObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          observer.unobserve(entry.target);
-        }
+      const revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      targets.forEach(function (el) {
+        revealObserver.observe(el);
       });
-    }, observerOptions);
-
-    targets.forEach(function (el) {
-      revealObserver.observe(el);
-    });
-
-    // Run fallback check immediately and on scroll & resize
-    window.addEventListener('scroll', checkAllReveals, { passive: true });
-    window.addEventListener('resize', checkAllReveals, { passive: true });
-    checkAllReveals();
-    setTimeout(checkAllReveals, 50);
+      // Single initial check for elements already in viewport
+      checkAllReveals();
+    } else {
+      // Fallback for older browsers without IntersectionObserver
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            checkAllReveals();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+      window.addEventListener('resize', checkAllReveals, { passive: true });
+      checkAllReveals();
+    }
     setTimeout(checkAllReveals, 150);
     setTimeout(checkAllReveals, 350);
   }
@@ -438,14 +506,21 @@
   function initBackToTop() {
     const floatingBtn = document.getElementById('floating-back-top');
     const footerBtn = document.getElementById('back-to-top');
+    let isShown = false;
+    let ticking = false;
 
     function toggleFloatingBtn() {
       if (!floatingBtn) return;
-      if (window.scrollY > 380) {
-        floatingBtn.classList.add('show');
-      } else {
-        floatingBtn.classList.remove('show');
+      const shouldShow = window.scrollY > 380;
+      if (shouldShow !== isShown) {
+        isShown = shouldShow;
+        if (shouldShow) {
+          floatingBtn.classList.add('show');
+        } else {
+          floatingBtn.classList.remove('show');
+        }
       }
+      ticking = false;
     }
 
     function scrollToTop(e) {
@@ -457,7 +532,12 @@
     }
 
     if (floatingBtn) {
-      window.addEventListener('scroll', toggleFloatingBtn, { passive: true });
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(toggleFloatingBtn);
+          ticking = true;
+        }
+      }, { passive: true });
       floatingBtn.addEventListener('click', scrollToTop);
       toggleFloatingBtn();
     }
