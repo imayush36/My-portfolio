@@ -31,7 +31,7 @@
 
   --text-main: #FFFFFF;
   --text-secondary: #B3B3B3;
-  --text-muted: #737373;
+  --text-muted: #9CA3AF;
 
   --border-color: #292929;
   --border-hover: #3e3e3e;
@@ -1731,7 +1731,7 @@ ol {
   padding: 0.3rem 0.85rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: #D4D4D8;
   max-width: 260px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -4316,7 +4316,7 @@ ol {
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1.25rem;
-  background: #FF2E36;
+  background: #D3141C;
   color: #FFFFFF;
   font-size: 0.78rem;
   font-weight: 700;
@@ -4324,14 +4324,15 @@ ol {
   border-radius: 9999px;
   text-decoration: none;
   transition: all 0.25s ease;
-  border: 1px solid #FF2E36;
+  border: 1px solid #D3141C;
 }
 
 .hero-pill-btn:hover {
-  background: #E11A22;
+  background: #B91C1C;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 46, 54, 0.35);
+  border-color: #B91C1C;
+  box-shadow: 0 8px 24px rgba(211, 20, 28, 0.45);
 }
 
 .hero-pill-btn.btn-outline {
@@ -4520,7 +4521,7 @@ ol {
   margin-left: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: #71717A;
+  color: #D4D4D8;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
